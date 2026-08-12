@@ -1,0 +1,839 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const trajectoryItems = [
+  {
+    number: "01",
+    title: "Infraestrutura de TI",
+    description: "Servidores, redes e Linux — a origem prática."
+  },
+  {
+    number: "02",
+    title: "Ciência da Computação",
+    description: "Fundamentos de software e pensamento computacional."
+  },
+  {
+    number: "03",
+    title: "Governança de TI",
+    description: "Visão de gestão, processos e decisão técnica."
+  },
+  {
+    number: "04",
+    title: "Engenharia de Software",
+    description: "Construção de aplicações e produtos — foco atual."
+  },
+  {
+    number: "05",
+    title: "IA aplicada & arquitetura de soluções",
+    description: "Especialização em andamento, unindo as camadas anteriores.",
+    highlight: true,
+    badge: "Direção atual"
+  }
+];
+
+const focusItems = [
+  {
+    icon: "</>",
+    title: "Engenharia de Software",
+    description: "Construção e arquitetura de aplicações, integração de sistemas e desenvolvimento de produtos."
+  },
+  {
+    icon: "◇",
+    title: "IA aplicada",
+    description: "Estudo de como a inteligência artificial pode ser integrada a aplicações e processos reais."
+  },
+  {
+    icon: "▦",
+    title: "Arquitetura de soluções",
+    description: "Evolução do conhecimento para projetar soluções envolvendo software, infraestrutura, dados, integrações e IA."
+  },
+  {
+    icon: "◆",
+    title: "Produto",
+    description: "Transformar problemas reais em produtos digitais e soluções tecnicamente viáveis.",
+    gold: true
+  }
+];
+
+const projectCards = [
+  {
+    meta: "SaaS · Produto digital",
+    status: "Em evolução",
+    statusTone: "gold",
+    title: "Precifi3D",
+    description: "Plataforma SaaS para makers, prestadores e pequenos negócios de impressão 3D, criada para profissionalizar a precificação, geração de orçamentos e organização da operação.",
+    tags: ["React", "Vite", "TypeScript", "Supabase", "PostgreSQL", "Stripe"],
+    role: "Meu papel: idealização do produto, definição de funcionalidades e fluxos, decisões de arquitetura, desenvolvimento assistido por IA, testes e evolução contínua da plataforma.",
+    href: "/projetos/#precifi3d"
+  },
+  {
+    meta: "Chrome Extension · Software",
+    status: "Em desenvolvimento",
+    statusTone: "gold",
+    title: "Precifi3D License Guard",
+    description: "Extensão para Google Chrome que ajuda usuários a identificar, interpretar e organizar informações de licença de modelos para impressão 3D antes de utilizá-los ou comercializá-los.",
+    tags: ["Chrome MV3", "JavaScript", "Supabase", "Edge Functions", "Stripe"],
+    role: "Meu papel: definição do produto e requisitos, desenho dos fluxos de análise e organização das licenças, decisões de arquitetura, desenvolvimento assistido por IA, testes e evolução técnica da extensão.",
+    href: "/projetos/#license-guard"
+  },
+  {
+    meta: "Portfólio · Web",
+    status: "Em evolução",
+    statusTone: "cyan",
+    title: "giuseppe.sasso",
+    description: "Portfólio pessoal em Astro, com Design System próprio e foco em performance, SEO, acessibilidade e responsividade, integrando as frentes de engenharia e negócios.",
+    tags: ["Astro", "Design System", "SEO", "Responsividade"],
+    role: "Meu papel: concepção do produto, arquitetura da informação, conteúdo, Design System, implementação frontend, SEO técnico e desenvolvimento assistido por IA.",
+    href: "/projetos/#giuseppe-sasso"
+  }
+];
+
+const knowledgeGroups = [
+  {
+    title: "Software",
+    tags: ["JavaScript", "TypeScript", "React", "Python"]
+  },
+  {
+    title: "Infraestrutura",
+    tags: ["Linux", "Redes", "Servidores"]
+  }
+];
+
+const educationItems = [
+  {
+    title: "Ciências da Computação",
+    description: "Graduação"
+  },
+  {
+    title: "Governança de TI",
+    description: "Pós-graduação"
+  },
+  {
+    title: "Engenharia de Software",
+    description: "Pós-graduação",
+    status: "Em andamento"
+  }
+];
+
+const developmentTags = [
+  "Inteligência Artificial aplicada",
+  "Arquitetura de soluções de IA",
+  "Automação inteligente",
+  "Engenharia de Software",
+  "Produtos digitais com IA"
+];
+---
+
+<BaseLayout
+  title="Engenharia & IA — Giuseppe Sasso"
+  description="Giuseppe Biazotto Sasso — engenharia de software, infraestrutura de TI e especialização em IA aplicada. Projetos reais e direção de carreira técnica."
+  ogTitle="Giuseppe Sasso — Engenharia & IA"
+  ogDescription="Base em infraestrutura e Ciência da Computação, avançando em engenharia de software e IA aplicada."
+>
+  <section class="engineering-hero" aria-labelledby="engineering-title">
+    <div class="engineering-hero__glow" aria-hidden="true"></div>
+    <p class="engineering-eyebrow engineering-eyebrow--accent engineering-fade-1">Engenharia & IA</p>
+    <h1 id="engineering-title" class="engineering-hero__title engineering-fade-2">
+      Construindo minha especialização entre <span>software</span>, infraestrutura e <span>inteligência artificial</span>.
+    </h1>
+    <p class="engineering-hero__intro engineering-fade-3">
+      Minha base vem da infraestrutura de TI e da Ciência da Computação. Hoje avanço em engenharia de software e IA aplicada, transformando estudo, arquitetura e desenvolvimento em projetos reais.
+    </p>
+    <div class="button-row engineering-fade-4">
+      <a class="button button--primary" href="#projetos">Ver projetos</a>
+      <a class="button engineering-button-secondary" href={site.socials.github} target="_blank" rel="noopener">
+        GitHub <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="engineering-section" aria-labelledby="trajectory-title">
+    <p class="eyebrow">Trajetória</p>
+    <h2 id="trajectory-title" class="engineering-section__title engineering-section__title--narrow">Uma base técnica construída em diferentes camadas</h2>
+    <div class="engineering-trajectory">
+      {trajectoryItems.map((item) => (
+        <article class:list={["engineering-step-card", { "engineering-step-card--highlight": item.highlight }]}>
+          <span class="engineering-step-card__number">
+            {item.number}
+            {item.badge && <span class="engineering-mini-badge">{item.badge}</span>}
+          </span>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="engineering-section" aria-labelledby="focus-title">
+    <p class="eyebrow">Onde estou agora</p>
+    <h2 id="focus-title" class="engineering-section__title engineering-section__title--compact">Meu foco atual</h2>
+    <p class="engineering-section__intro">
+      Meu objetivo é aprofundar a interseção entre engenharia de software, IA aplicada e arquitetura de soluções — transformando conhecimento técnico em produtos reais.
+    </p>
+    <div class="engineering-focus-grid">
+      {focusItems.map((item) => (
+        <article class="engineering-focus-card">
+          <span class:list={["engineering-icon-box", { "engineering-icon-box--gold": item.gold }]} aria-hidden="true">{item.icon}</span>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="projetos" class="engineering-section engineering-section--anchored" aria-labelledby="projects-title">
+    <p class="eyebrow">Projetos em destaque</p>
+    <h2 id="projects-title" class="engineering-section__title">Projetos e aplicações práticas</h2>
+    <div class="engineering-project-grid">
+      {projectCards.map((project) => (
+        <article class="engineering-project-card">
+          <div class="engineering-project-card__head">
+            <span class="engineering-project-card__meta">{project.meta}</span>
+            <span class:list={["engineering-status-badge", `engineering-status-badge--${project.statusTone}`]}>{project.status}</span>
+          </div>
+          <h3>{project.title}</h3>
+          <p class="engineering-project-card__description">{project.description}</p>
+          <div class="engineering-tag-list" aria-label={`Tecnologias de ${project.title}`}>
+            {project.tags.map((tag) => <span class="engineering-tag">{tag}</span>)}
+          </div>
+          <p class="engineering-project-card__role">{project.role}</p>
+          <a class="engineering-text-link" href={project.href}>Ver mais sobre <span aria-hidden="true">→</span></a>
+        </article>
+      ))}
+    </div>
+    <p class="engineering-note">
+      <span aria-hidden="true"></span>
+      Novos projetos de IA, automações e arquitetura serão adicionados aqui conforme evoluem.
+    </p>
+  </section>
+
+  <section class="engineering-section" aria-labelledby="knowledge-title">
+    <p class="eyebrow">Conhecimentos</p>
+    <h2 id="knowledge-title" class="engineering-section__title">Conhecimentos e áreas em desenvolvimento</h2>
+    <div class="engineering-knowledge-grid">
+      {knowledgeGroups.map((group) => (
+        <article class="engineering-knowledge-card">
+          <h3><span aria-hidden="true"></span>{group.title}</h3>
+          <div class="engineering-skill-list">
+            {group.tags.map((tag) => <span>{tag}</span>)}
+          </div>
+        </article>
+      ))}
+      <article class="engineering-knowledge-card engineering-knowledge-card--highlight">
+        <h3><span aria-hidden="true"></span>IA aplicada</h3>
+        <span class="engineering-status-badge engineering-status-badge--cyan">Especialização em andamento</span>
+        <p>Tecnologias específicas serão listadas quando vinculadas a projetos reais publicados.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="engineering-section" aria-labelledby="education-title">
+    <p class="eyebrow">Formação</p>
+    <h2 id="education-title" class="engineering-section__title">Formação acadêmica</h2>
+    <div class="engineering-education-list">
+      {educationItems.map((item) => (
+        <article class="engineering-education-item">
+          <div>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+          {item.status && <span class="engineering-status-badge engineering-status-badge--cyan">{item.status}</span>}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="engineering-section" aria-labelledby="development-title">
+    <p class="eyebrow">Em desenvolvimento</p>
+    <h2 id="development-title" class="engineering-section__title engineering-section__title--compact">O que estou aprofundando agora</h2>
+    <p class="engineering-section__intro">
+      Minha próxima etapa profissional está focada em compreender como sistemas de IA são projetados, integrados, avaliados e transformados em produtos reais.
+    </p>
+    <div class="engineering-chip-list">
+      {developmentTags.map((tag) => <span>{tag}</span>)}
+    </div>
+  </section>
+
+  <section class="engineering-section engineering-section--cta" aria-labelledby="engineering-cta-title">
+    <div class="engineering-cta">
+      <div class="engineering-cta__glow" aria-hidden="true"></div>
+      <h2 id="engineering-cta-title">Tecnologia se demonstra construindo.</h2>
+      <p>Estou transformando estudo e experiência em projetos reais e documentando essa evolução por aqui.</p>
+      <div class="button-row">
+        <a class="button button--primary" href="/projetos/">Explorar projetos</a>
+        <a class="button engineering-button-secondary" href={site.socials.linkedin} target="_blank" rel="noopener">Ver meu LinkedIn</a>
+        <a class="engineering-muted-link" href={site.socials.github} target="_blank" rel="noopener">
+          GitHub <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .engineering-hero,
+  .engineering-section {
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding-inline: var(--gutter);
+    box-sizing: border-box;
+  }
+
+  .engineering-hero {
+    position: relative;
+    padding-top: clamp(52px, 8vw, 92px);
+    padding-bottom: clamp(40px, 6vw, 64px);
+  }
+
+  .engineering-hero__glow {
+    position: absolute;
+    top: -30px;
+    left: var(--gutter);
+    width: min(420px, 60vw);
+    height: 220px;
+    background: radial-gradient(60% 60% at 20% 40%, oklch(0.82 0.11 210 / .09), transparent 72%);
+    filter: blur(20px);
+    pointer-events: none;
+  }
+
+  .engineering-eyebrow {
+    margin: 0 0 18px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+
+  .engineering-eyebrow--accent {
+    color: var(--color-cyan);
+  }
+
+  .engineering-hero__title {
+    position: relative;
+    max-width: 22ch;
+    margin: 0 0 22px;
+    font-size: clamp(30px, 4.6vw, 50px);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -.025em;
+    text-wrap: pretty;
+  }
+
+  .engineering-hero__title span {
+    color: var(--color-cyan);
+  }
+
+  .engineering-hero__intro {
+    position: relative;
+    max-width: 60ch;
+    margin: 0 0 34px;
+    color: var(--color-text-secondary);
+    font-size: clamp(15px, 1.7vw, 18px);
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+
+  .engineering-fade-1 {
+    animation: fadeUp .6s .04s both;
+  }
+
+  .engineering-fade-2 {
+    animation: fadeUp .6s .1s both;
+  }
+
+  .engineering-fade-3 {
+    animation: fadeUp .6s .18s both;
+  }
+
+  .engineering-fade-4 {
+    position: relative;
+    animation: fadeUp .6s .26s both;
+  }
+
+  .engineering-button-secondary {
+    border: var(--border-control);
+    color: var(--color-text);
+  }
+
+  .engineering-button-secondary span {
+    color: var(--color-text-tertiary);
+    font-weight: 500;
+  }
+
+  .engineering-button-secondary:hover {
+    transform: translateY(-2px);
+    border-color: oklch(0.82 0.11 210 / .55);
+    background: rgba(255, 255, 255, .04);
+    color: var(--color-text);
+  }
+
+  .engineering-section {
+    padding-top: clamp(48px, 7vw, 84px);
+    padding-bottom: clamp(48px, 7vw, 84px);
+    border-top: var(--border-subtle);
+  }
+
+  .engineering-section--anchored {
+    scroll-margin-top: 80px;
+  }
+
+  .engineering-section--cta {
+    padding-top: clamp(56px, 8vw, 96px);
+    padding-bottom: clamp(56px, 8vw, 96px);
+  }
+
+  .engineering-section__title {
+    margin: 0 0 40px;
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    text-wrap: pretty;
+  }
+
+  .engineering-section__title--narrow {
+    max-width: 20ch;
+  }
+
+  .engineering-section__title--compact {
+    margin-bottom: 12px;
+  }
+
+  .engineering-section__intro {
+    max-width: 64ch;
+    margin: 0 0 40px;
+    color: var(--color-text-secondary);
+    font-size: 16px;
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+
+  .engineering-trajectory {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 16px;
+  }
+
+  .engineering-step-card,
+  .engineering-focus-card,
+  .engineering-project-card,
+  .engineering-knowledge-card {
+    border: var(--border-card);
+    background: var(--color-surface-3);
+  }
+
+  .engineering-step-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 22px 20px;
+    border-radius: 14px;
+  }
+
+  .engineering-step-card--highlight {
+    border-color: oklch(0.82 0.11 210 / .32);
+    background: oklch(0.82 0.11 210 / .07);
+  }
+
+  .engineering-step-card__number {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--color-text-tertiary);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    letter-spacing: .08em;
+  }
+
+  .engineering-step-card--highlight .engineering-step-card__number {
+    color: var(--color-cyan);
+  }
+
+  .engineering-mini-badge {
+    padding: 2px 7px;
+    border-radius: 5px;
+    background: oklch(0.82 0.11 210 / .14);
+    color: var(--color-cyan);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .engineering-step-card h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -.01em;
+  }
+
+  .engineering-step-card p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .engineering-step-card--highlight p {
+    color: var(--color-text-raised);
+  }
+
+  .engineering-focus-grid,
+  .engineering-knowledge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .engineering-focus-card,
+  .engineering-knowledge-card {
+    padding: 28px 26px;
+    border-radius: 16px;
+  }
+
+  .engineering-focus-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .engineering-icon-box {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid oklch(0.82 0.11 210 / .28);
+    border-radius: 9px;
+    background: oklch(0.82 0.11 210 / .12);
+    color: var(--color-cyan);
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .engineering-icon-box--gold {
+    border-color: oklch(0.84 0.1 80 / .28);
+    background: oklch(0.84 0.1 80 / .12);
+    color: var(--color-gold);
+  }
+
+  .engineering-focus-card h3 {
+    margin: 6px 0 0;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -.01em;
+  }
+
+  .engineering-focus-card p,
+  .engineering-knowledge-card p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .engineering-project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 20px;
+  }
+
+  .engineering-project-card {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 28px;
+    border-radius: var(--radius-card);
+    transition: transform var(--transition-medium), border-color var(--transition-medium), background var(--transition-medium);
+  }
+
+  .engineering-project-card:hover {
+    transform: translateY(-4px);
+    border-color: oklch(0.82 0.11 210 / .4);
+    background: var(--color-surface-5);
+  }
+
+  .engineering-project-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .engineering-project-card__meta {
+    color: var(--color-cyan);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .engineering-status-badge {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .04em;
+  }
+
+  .engineering-status-badge--gold {
+    border: 1px solid oklch(0.84 0.1 80 / .3);
+    background: oklch(0.84 0.1 80 / .12);
+    color: var(--color-gold);
+  }
+
+  .engineering-status-badge--cyan {
+    border: 1px solid oklch(0.82 0.11 210 / .3);
+    background: oklch(0.82 0.11 210 / .12);
+    color: var(--color-cyan);
+  }
+
+  .engineering-project-card h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -.015em;
+  }
+
+  .engineering-project-card__description {
+    margin: 0 0 18px;
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .engineering-tag-list,
+  .engineering-skill-list,
+  .engineering-chip-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .engineering-tag-list {
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+
+  .engineering-tag {
+    padding: 4px 10px;
+    border: var(--border-card);
+    border-radius: 7px;
+    background: var(--color-surface-5);
+    color: var(--color-text-raised);
+    font-size: 12px;
+  }
+
+  .engineering-project-card__role {
+    margin: 0 0 20px;
+    color: var(--color-text-tertiary);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .engineering-text-link {
+    align-self: flex-start;
+    margin-top: auto;
+    color: var(--color-cyan);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .engineering-text-link:hover {
+    color: var(--color-cyan-hover);
+  }
+
+  .engineering-note {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 26px 0 0;
+    color: var(--color-text-tertiary);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .engineering-note span {
+    width: 6px;
+    height: 6px;
+    display: inline-block;
+    flex: none;
+    border-radius: 2px;
+    background: #3a3f46;
+  }
+
+  .engineering-knowledge-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .engineering-knowledge-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 16px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -.01em;
+  }
+
+  .engineering-knowledge-card h3 span {
+    width: 7px;
+    height: 7px;
+    display: inline-block;
+    border-radius: 2px;
+    background: var(--color-cyan);
+  }
+
+  .engineering-knowledge-card--highlight {
+    border-color: oklch(0.82 0.11 210 / .28);
+    background: oklch(0.82 0.11 210 / .06);
+  }
+
+  .engineering-knowledge-card--highlight h3 span {
+    box-shadow: 0 0 8px oklch(0.82 0.11 210 / .6);
+  }
+
+  .engineering-knowledge-card--highlight p {
+    margin-top: 16px;
+    font-size: 13px;
+  }
+
+  .engineering-skill-list {
+    gap: 9px;
+  }
+
+  .engineering-skill-list span {
+    padding: 6px 13px;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 8px;
+    background: var(--color-surface-5);
+    color: var(--color-text);
+    font-size: 13px;
+  }
+
+  .engineering-education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .engineering-education-item {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 22px 4px;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+  }
+
+  .engineering-education-item:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+  }
+
+  .engineering-education-item h3 {
+    margin: 0 0 4px;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -.01em;
+  }
+
+  .engineering-education-item p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 14px;
+  }
+
+  .engineering-chip-list {
+    gap: 12px;
+  }
+
+  .engineering-chip-list span {
+    padding: 9px 16px;
+    border: 1px dashed rgba(255, 255, 255, .16);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .04);
+    color: var(--color-text);
+    font-size: 14px;
+  }
+
+  .engineering-cta {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(36px, 5vw, 60px) clamp(28px, 4vw, 52px);
+    border: var(--border-card);
+    border-radius: 22px;
+    background: var(--color-surface-3);
+  }
+
+  .engineering-cta__glow {
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(50% 50% at 50% 50%, oklch(0.82 0.11 210 / .1), transparent 70%);
+    filter: blur(24px);
+    pointer-events: none;
+  }
+
+  .engineering-cta h2,
+  .engineering-cta p,
+  .engineering-cta .button-row {
+    position: relative;
+  }
+
+  .engineering-cta h2 {
+    max-width: 22ch;
+    margin: 0 0 14px;
+    font-size: clamp(26px, 3.4vw, 40px);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    text-wrap: pretty;
+  }
+
+  .engineering-cta p {
+    max-width: 56ch;
+    margin: 0 0 30px;
+    color: var(--color-text-secondary);
+    font-size: 16px;
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+
+  .engineering-muted-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 0;
+    color: var(--color-text-secondary);
+    font-size: 15px;
+    font-weight: 600;
+    transition: color var(--transition-fast);
+  }
+
+  .engineering-muted-link span {
+    color: var(--color-text-tertiary);
+  }
+
+  .engineering-muted-link:hover {
+    color: var(--color-text);
+  }
+
+  @media (max-width: 720px) {
+    .engineering-project-card__head {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .engineering-step-card,
+    .engineering-focus-card,
+    .engineering-project-card,
+    .engineering-knowledge-card {
+      padding: 24px 22px;
+    }
+  }
+</style>

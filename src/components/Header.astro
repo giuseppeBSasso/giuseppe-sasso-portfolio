@@ -1,0 +1,28 @@
+---
+import BrandMark from "./BrandMark.astro";
+import { mainNav } from "../data/site";
+
+interface Props {
+  accent?: "cyan" | "gold";
+}
+
+const { accent = "cyan" } = Astro.props;
+const pathname = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <nav class:list={["site-nav", `site-nav--${accent}`]} aria-label="Navegação principal">
+    <BrandMark as="a" href="/" label="giuseppe.sasso" />
+    <div class="site-nav__links">
+      {mainNav.map((item) => {
+        const isActive = pathname === item.href;
+        return (
+          <a class:list={["site-nav__link", { "site-nav__link--active": isActive }]} href={item.href} aria-current={isActive ? "page" : undefined}>
+            {isActive && <span class="site-nav__active-dot" aria-hidden="true"></span>}
+            {item.label}
+          </a>
+        );
+      })}
+    </div>
+  </nav>
+</header>

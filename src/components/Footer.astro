@@ -1,0 +1,35 @@
+---
+import BrandMark from "./BrandMark.astro";
+import { footerNav, site } from "../data/site";
+---
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <BrandMark as="p" />
+        <p class="site-footer__name">{site.name}</p>
+        <p class="site-footer__description">{site.description}</p>
+      </div>
+
+      <div class="site-footer__column">
+        <p class="site-footer__heading">Navegação</p>
+        {footerNav.map((item) => <a href={item.href}>{item.label}</a>)}
+      </div>
+
+      <div class="site-footer__column">
+        <p class="site-footer__heading">Contato</p>
+        <a href={site.contacts.whatsappHref}>{site.contacts.whatsappLabel}</a>
+        <a href={site.contacts.emailHref}>{site.contacts.emailLabel}</a>
+      </div>
+
+      <div class="site-footer__column">
+        <p class="site-footer__heading">Redes</p>
+        <a href={site.socials.github} target="_blank" rel="noopener">GitHub</a>
+        <a href={site.socials.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <p class="site-footer__copyright">© 2026 {site.name} · {site.location}</p>
+  </div>
+</footer>

@@ -1,0 +1,17 @@
+---
+import { site } from "../data/site";
+
+interface Props {
+  as?: "a" | "span" | "p";
+  href?: string;
+  label?: string;
+}
+
+const { as = "span", href = "/", label = "giuseppe.sasso" } = Astro.props;
+const Tag = as;
+---
+
+<Tag class="brand-mark" {...(as === "a" ? { href, "aria-label": label } : {})}>
+  <span class="brand-mark__dot" aria-hidden="true"></span>
+  <span>{site.brandBase}<span class="brand-mark__accent">{site.brandAccent}</span></span>
+</Tag>

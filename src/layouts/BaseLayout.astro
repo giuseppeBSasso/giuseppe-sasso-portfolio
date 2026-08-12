@@ -1,0 +1,92 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  accent?: "cyan" | "gold";
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  ogTitle = title,
+  ogDescription = description,
+  accent = "cyan",
+  noindex = false
+} = Astro.props;
+
+const siteUrl = Astro.site ?? new URL("https://giuseppesasso.com.br");
+const canonicalUrl = noindex ? undefined : new URL(Astro.url.pathname, siteUrl).toString();
+const ogImageUrl = new URL("/social/og-default.png", siteUrl).toString();
+const ogImageAlt = "Imagem social do portfólio de Giuseppe Sasso";
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:type" content="website" />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="2400" />
+    <meta property="og:image:height" content="1260" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta property="og:site_name" content="Giuseppe Sasso" />
+    <meta property="og:locale" content="pt_BR" />
+    <link rel="icon" href="/brand/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <Header accent={accent} />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <script is:inline>
+      (function () {
+        function init() {
+          try {
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+            var els = Array.prototype.slice.call(document.querySelectorAll("[data-reveal]"));
+            if (!("IntersectionObserver" in window) || !els.length) return;
+            els.forEach(function (el) {
+              el.style.opacity = "0";
+              el.style.transform = "translateY(18px)";
+              el.style.transition = "opacity .6s ease, transform .6s ease";
+            });
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.style.opacity = "1";
+                  entry.target.style.transform = "none";
+                  io.unobserve(entry.target);
+                }
+              });
+            }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+            els.forEach(function (el) { io.observe(el); });
+          } catch (err) {}
+        }
+        if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+        else init();
+      })();
+    </script>
+  </body>
+</html>

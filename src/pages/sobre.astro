@@ -1,0 +1,694 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const timelineItems = [
+  {
+    number: "01",
+    title: "Redes de Telecomunicações",
+    description: "Início profissional em um provedor de internet."
+  },
+  {
+    number: "02",
+    title: "Infraestrutura de TI",
+    description: "Evolução para ambientes corporativos, Data Centers e Servidores."
+  },
+  {
+    number: "03",
+    title: "Ciência da Computação",
+    description: "Construção da formação acadêmica em tecnologia e desenvolvimento."
+  },
+  {
+    number: "04",
+    title: "Governança de TI",
+    description: "Ampliação da visão sobre gestão, processos e tecnologia."
+  },
+  {
+    number: "05",
+    title: "Engenharia de Software",
+    description: "Pós-graduação em andamento e aprofundamento na construção de sistemas."
+  },
+  {
+    title: "Software, Produto & IA",
+    description: "Direção atual de desenvolvimento profissional.",
+    badge: "Direção profissional",
+    highlight: true
+  }
+];
+
+const thinkingItems = [
+  {
+    title: "Entender antes de construir",
+    description: "Gosto de compreender o problema, o contexto e o objetivo antes de decidir qual tecnologia utilizar."
+  },
+  {
+    title: "Aprender construindo",
+    description: "Estudo e projeto caminham juntos. Sempre que possível, transformo conhecimento novo em algo prático."
+  },
+  {
+    title: "Documentar decisões",
+    description: "Procuro registrar decisões, requisitos e aprendizados para que os projetos tenham contexto e possam evoluir de forma organizada."
+  },
+  {
+    title: "IA como ferramenta",
+    description: "Utilizo inteligência artificial como apoio para pesquisa, desenvolvimento, análise, documentação e implementação, mantendo as decisões e validações como parte essencial do processo."
+  }
+];
+
+const educationItems = [
+  {
+    status: "Concluída",
+    title: "Ciências da Computação",
+    description: "Graduação",
+    tone: "cyan"
+  },
+  {
+    status: "Concluída",
+    title: "Governança de TI",
+    description: "Pós-graduação",
+    tone: "cyan"
+  },
+  {
+    status: "Em andamento",
+    title: "Engenharia de Software",
+    description: "Pós-graduação",
+    tone: "gold"
+  }
+];
+---
+
+<BaseLayout
+  title="Sobre — Giuseppe Sasso"
+  description="Giuseppe Biazotto Sasso — trajetória de infraestrutura a engenharia de software, produto e IA. Base técnica real e construção de produtos próprios."
+  ogTitle="Sobre — Giuseppe Sasso"
+  ogDescription="De redes e infraestrutura a engenharia de software, produtos digitais e IA aplicada — conectando conhecimento técnico à compreensão do problema."
+>
+  <section class="about-hero" aria-labelledby="about-title">
+    <div class="about-hero__glow" aria-hidden="true"></div>
+    <div class="about-hero__inner">
+      <div class="about-hero__content">
+        <p class="about-eyebrow about-eyebrow--accent about-fade-1">Sobre</p>
+        <h1 id="about-title" class="about-hero__title about-fade-2">
+          Tecnologia, produto e uma base construída na <span>infraestrutura</span>.
+        </h1>
+        <p class="about-hero__intro about-fade-3">
+          Minha trajetória começou em redes e infraestrutura e hoje se expande para engenharia de software, produtos digitais e inteligência artificial — conectando conhecimento técnico à compreensão do problema que precisa ser resolvido.
+        </p>
+        <div class="button-row about-fade-4">
+          <a class="button button--primary" href="/projetos/">Conhecer meus projetos</a>
+          <a class="button about-button-secondary" href={site.socials.linkedin} target="_blank" rel="noopener">
+            LinkedIn <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="about-hero__media about-fade-3">
+        <div class="about-photo">
+          <img src="/uploads/minha-foto.jpeg" alt="Giuseppe Biazotto Sasso" width="522" height="551" fetchpriority="high" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section" aria-labelledby="trajectory-title">
+    <p class="eyebrow">Trajetória</p>
+    <h2 id="trajectory-title" class="about-section__title about-section__title--narrow">A base veio da infraestrutura.</h2>
+    <div class="about-text-block">
+      <p>Minha carreira em tecnologia começou em um provedor de internet, trabalhando como Técnico em Redes de Telecomunicações. Com o tempo, minha atuação evoluiu para ambientes corporativos de infraestrutura.</p>
+      <p>Atualmente atuo como <strong>Analista de Infraestrutura Pleno na Klabin</strong>, dentro de Core Infra, na torre de Data Centers e Servidores. Essa experiência forma a base prática do meu entendimento sobre infraestrutura, ambientes corporativos e operação de tecnologia.</p>
+      <p>Hoje acumulo aproximadamente <strong>8 anos</strong> de atuação na área de TI.</p>
+    </div>
+  </section>
+
+  <section class="about-section" aria-labelledby="evolution-title">
+    <p class="about-eyebrow about-eyebrow--accent about-eyebrow--tight">Evolução</p>
+    <h2 id="evolution-title" class="about-section__title about-section__title--medium">Da infraestrutura para uma visão mais completa de tecnologia.</h2>
+    <div class="about-text-block">
+      <p>Programação e desenvolvimento já despertavam meu interesse desde o início da graduação em Ciências da Computação. Hoje estou aprofundando essa área por meio da Engenharia de Software e do desenvolvimento de projetos próprios.</p>
+      <p>Ao mesmo tempo, acompanho a evolução da inteligência artificial e venho direcionando meus estudos para entender como software, infraestrutura, arquitetura, IA e produto podem se conectar na construção de soluções reais.</p>
+    </div>
+  </section>
+
+  <section class="about-section" aria-labelledby="timeline-title">
+    <p class="eyebrow">Linha do tempo</p>
+    <h2 id="timeline-title" class="about-section__title">Uma evolução contínua</h2>
+    <ol class="about-timeline">
+      {timelineItems.map((item) => (
+        <li class:list={["about-timeline-card", { "about-timeline-card--highlight": item.highlight }]} data-reveal>
+          {item.badge ? (
+            <span class="about-status-badge about-status-badge--gold">{item.badge}</span>
+          ) : (
+            <span class="about-timeline-card__number">{item.number}</span>
+          )}
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="about-section" aria-labelledby="product-title">
+    <div class="about-feature">
+      <div class="about-feature__glow" aria-hidden="true"></div>
+      <p class="about-eyebrow about-eyebrow--accent about-eyebrow--tight">Produto</p>
+      <h2 id="product-title">O Precifi3D começou com um problema real.</h2>
+      <div class="about-text-block about-text-block--feature">
+        <p>Depois de conversar com um amigo que trabalhava com impressão 3D, decidi conhecer melhor esse mercado e comprei minha própria impressora. Logo no início percebi a dificuldade que prestadores enfrentavam para calcular preços e organizar seus serviços.</p>
+        <p>A partir dessa percepção nasceu a ideia do Precifi3D: transformar um problema observado no mercado em um produto digital que pudesse ajudar makers e prestadores a trabalhar de forma mais organizada e profissional.</p>
+        <p><strong>Esse processo reforçou meu interesse não apenas em desenvolver software, mas em entender o problema, pensar o produto e construir a solução.</strong></p>
+      </div>
+      <a class="about-text-link" href="/projetos/#precifi3d">Conhecer o Precifi3D <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="about-section" aria-labelledby="thinking-title">
+    <p class="eyebrow">Como penso</p>
+    <h2 id="thinking-title" class="about-section__title about-section__title--narrow">Tecnologia é meio. O problema vem primeiro.</h2>
+    <div class="about-card-grid">
+      {thinkingItems.map((item) => (
+        <article class="about-card" data-reveal>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="about-section" aria-labelledby="education-title">
+    <p class="eyebrow">Formação</p>
+    <h2 id="education-title" class="about-section__title">Base acadêmica</h2>
+    <div class="about-education-grid">
+      {educationItems.map((item) => (
+        <article class="about-education-card" data-reveal>
+          <span class:list={["about-status-badge", `about-status-badge--${item.tone}`]}>{item.status}</span>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="about-section" aria-labelledby="today-title">
+    <p class="eyebrow">Hoje</p>
+    <h2 id="today-title" class="about-section__title about-section__title--compact">Construindo a próxima camada.</h2>
+    <div class="about-text-block">
+      <p>Hoje continuo atuando profissionalmente em infraestrutura enquanto amplio minha formação em Engenharia de Software e desenvolvo projetos próprios relacionados a software, produtos digitais e inteligência artificial aplicada.</p>
+      <p>Minha direção profissional está na interseção entre arquitetura, engenharia e produto, buscando compreender tanto a tecnologia quanto o problema de negócio por trás dela.</p>
+    </div>
+  </section>
+
+  <section class="about-section" aria-labelledby="beyond-title">
+    <p class="about-eyebrow about-eyebrow--gold about-eyebrow--tight">Além do trabalho</p>
+    <h2 id="beyond-title" class="about-section__title about-section__title--medium">Curiosidade que vira projeto.</h2>
+    <div class="about-text-block">
+      <p>Tenho interesse em tecnologia também fora do ambiente corporativo. Projetos próprios, impressão 3D, desenvolvimento de produtos e experimentação com novas ferramentas fazem parte da forma como continuo aprendendo.</p>
+      <p>Foi justamente explorando impressão 3D fora do trabalho que surgiu o Precifi3D.</p>
+    </div>
+  </section>
+
+  <section id="contato" class="about-section about-section--cta about-section--anchored" aria-labelledby="about-cta-title">
+    <div class="about-cta">
+      <div class="about-cta__glow" aria-hidden="true"></div>
+      <h2 id="about-cta-title">Minha trajetória explica a base. Os projetos mostram o que estou construindo com ela.</h2>
+      <p>Software, infraestrutura, produto e IA fazem parte de uma evolução contínua que procuro transformar em soluções reais.</p>
+      <div class="button-row">
+        <a class="button button--primary" href="/projetos/">Ver meus projetos</a>
+        <a class="button about-button-secondary" href="/engenharia/">Ver Engenharia & IA</a>
+        <a class="about-muted-link" href={site.socials.linkedin} target="_blank" rel="noopener">
+          LinkedIn <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-hero,
+  .about-section {
+    width: 100%;
+    max-width: var(--container);
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding-inline: var(--gutter);
+  }
+
+  .about-hero {
+    position: relative;
+    padding-top: clamp(52px, 8vw, 88px);
+    padding-bottom: clamp(40px, 6vw, 60px);
+  }
+
+  .about-hero__glow {
+    position: absolute;
+    top: -30px;
+    left: var(--gutter);
+    width: min(460px, 60vw);
+    height: 230px;
+    background: radial-gradient(60% 60% at 20% 40%, oklch(0.82 0.11 210 / .09), transparent 72%);
+    filter: blur(22px);
+    pointer-events: none;
+  }
+
+  .about-hero__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    gap: clamp(32px, 5vw, 64px);
+  }
+
+  .about-hero__content {
+    flex: 1 1 380px;
+    min-width: 0;
+  }
+
+  .about-hero__media {
+    flex: 0 1 320px;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-photo {
+    position: relative;
+    width: clamp(240px, 32vw, 320px);
+    aspect-ratio: 4 / 5;
+  }
+
+  .about-photo::before {
+    position: absolute;
+    inset: -9%;
+    border-radius: 30px;
+    background: radial-gradient(58% 52% at 55% 42%, oklch(0.82 0.11 210 / .14), transparent 70%);
+    content: "";
+    filter: blur(16px);
+    pointer-events: none;
+  }
+
+  .about-photo img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .45);
+    object-fit: cover;
+    object-position: 50% 20%;
+  }
+
+  .about-eyebrow {
+    margin: 0 0 18px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+
+  .about-eyebrow--tight {
+    margin-bottom: 10px;
+    letter-spacing: .14em;
+  }
+
+  .about-eyebrow--accent {
+    color: var(--color-cyan);
+  }
+
+  .about-eyebrow--gold {
+    color: var(--color-gold-text);
+  }
+
+  .about-hero__title {
+    max-width: 18ch;
+    margin: 0 0 22px;
+    font-size: clamp(29px, 4.2vw, 46px);
+    font-weight: 600;
+    line-height: 1.14;
+    letter-spacing: -.025em;
+    text-wrap: pretty;
+  }
+
+  .about-hero__title span {
+    color: var(--color-cyan);
+  }
+
+  .about-hero__intro {
+    max-width: 56ch;
+    margin: 0 0 32px;
+    color: var(--color-text-secondary);
+    font-size: clamp(15px, 1.7vw, 18px);
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+
+  .about-fade-1 {
+    animation: fadeUp .6s .04s both;
+  }
+
+  .about-fade-2 {
+    animation: fadeUp .6s .1s both;
+  }
+
+  .about-fade-3 {
+    animation: fadeUp .6s .18s both;
+  }
+
+  .about-fade-4 {
+    animation: fadeUp .6s .26s both;
+  }
+
+  .about-button-secondary {
+    border: var(--border-control);
+    color: var(--color-text);
+  }
+
+  .about-button-secondary span {
+    color: var(--color-text-tertiary);
+    font-weight: 500;
+  }
+
+  .about-button-secondary:hover {
+    transform: translateY(-2px);
+    border-color: oklch(0.82 0.11 210 / .55);
+    background: rgba(255, 255, 255, .04);
+    color: var(--color-text);
+  }
+
+  .about-section {
+    padding-top: clamp(48px, 7vw, 84px);
+    padding-bottom: clamp(48px, 7vw, 84px);
+    border-top: var(--border-subtle);
+  }
+
+  .about-section--cta {
+    padding-top: clamp(56px, 8vw, 96px);
+    padding-bottom: clamp(56px, 8vw, 96px);
+  }
+
+  .about-section--anchored {
+    scroll-margin-top: 80px;
+  }
+
+  .about-section__title {
+    margin: 0 0 clamp(32px, 5vw, 48px);
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    text-wrap: pretty;
+  }
+
+  .about-section__title--narrow {
+    max-width: 22ch;
+    margin-bottom: 28px;
+  }
+
+  .about-section__title--medium {
+    max-width: 24ch;
+    margin-bottom: 28px;
+  }
+
+  .about-section__title--compact {
+    margin-bottom: 28px;
+  }
+
+  .about-text-block {
+    max-width: 64ch;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .about-text-block--feature {
+    max-width: 62ch;
+    gap: 16px;
+  }
+
+  .about-text-block p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 16px;
+    line-height: 1.7;
+    text-wrap: pretty;
+  }
+
+  .about-text-block strong {
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  .about-text-block--feature strong {
+    color: var(--color-text-raised);
+  }
+
+  .about-timeline {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .about-timeline-card,
+  .about-card,
+  .about-education-card {
+    border: 1px solid rgba(255, 255, 255, .08);
+    background: var(--color-surface-3);
+  }
+
+  .about-timeline-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 22px 20px;
+    border-radius: 14px;
+  }
+
+  .about-timeline-card--highlight {
+    border-color: oklch(0.84 0.1 80 / .28);
+    background: linear-gradient(180deg, oklch(0.84 0.1 80 / .07), rgba(255, 255, 255, .02));
+  }
+
+  .about-timeline-card__number {
+    color: var(--color-cyan);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px;
+    letter-spacing: .08em;
+  }
+
+  .about-timeline-card h3,
+  .about-card h3,
+  .about-education-card h3 {
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: -.01em;
+  }
+
+  .about-timeline-card h3 {
+    font-size: 15px;
+  }
+
+  .about-timeline-card p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .about-feature,
+  .about-cta {
+    position: relative;
+    overflow: hidden;
+    border: var(--border-card);
+    border-radius: 22px;
+    background: var(--color-surface-3);
+  }
+
+  .about-feature {
+    padding: clamp(32px, 5vw, 56px);
+  }
+
+  .about-feature__glow,
+  .about-cta__glow {
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 440px;
+    height: 440px;
+    background: radial-gradient(50% 50% at 50% 50%, oklch(0.82 0.11 210 / .1), transparent 70%);
+    filter: blur(24px);
+    pointer-events: none;
+  }
+
+  .about-feature h2,
+  .about-feature .about-text-block,
+  .about-feature .about-text-link,
+  .about-feature .about-eyebrow {
+    position: relative;
+  }
+
+  .about-feature h2 {
+    max-width: 24ch;
+    margin: 0 0 20px;
+    font-size: clamp(22px, 2.8vw, 32px);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    text-wrap: pretty;
+  }
+
+  .about-text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 26px;
+    color: var(--color-cyan);
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .about-text-link span {
+    color: var(--color-text-tertiary);
+    font-weight: 500;
+  }
+
+  .about-text-link:hover {
+    color: var(--color-cyan-hover);
+  }
+
+  .about-card-grid,
+  .about-education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .about-card,
+  .about-education-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 14px;
+  }
+
+  .about-card {
+    gap: 9px;
+    padding: 26px 24px;
+  }
+
+  .about-card h3 {
+    font-size: 16px;
+  }
+
+  .about-card p,
+  .about-education-card p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 14px;
+  }
+
+  .about-card p {
+    line-height: 1.6;
+  }
+
+  .about-education-card {
+    gap: 10px;
+    padding: 26px 24px;
+  }
+
+  .about-education-card h3 {
+    font-size: 17px;
+    letter-spacing: -.015em;
+  }
+
+  .about-status-badge {
+    width: fit-content;
+    display: inline-block;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+
+  .about-status-badge--cyan {
+    padding: 3px 10px;
+    border: 1px solid oklch(0.82 0.11 210 / .3);
+    background: oklch(0.82 0.11 210 / .12);
+    color: var(--color-cyan);
+  }
+
+  .about-status-badge--gold {
+    padding: 3px 9px;
+    border: 1px solid oklch(0.84 0.1 80 / .3);
+    background: oklch(0.84 0.1 80 / .12);
+    color: var(--color-gold-text);
+    font-size: 10px;
+    letter-spacing: .09em;
+  }
+
+  .about-cta {
+    padding: clamp(36px, 5vw, 60px) clamp(28px, 4vw, 52px);
+  }
+
+  .about-cta h2,
+  .about-cta p,
+  .about-cta .button-row {
+    position: relative;
+  }
+
+  .about-cta h2 {
+    max-width: 26ch;
+    margin: 0 0 14px;
+    font-size: clamp(23px, 3vw, 36px);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    text-wrap: pretty;
+  }
+
+  .about-cta p {
+    max-width: 58ch;
+    margin: 0 0 30px;
+    color: var(--color-text-secondary);
+    font-size: 16px;
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+
+  .about-muted-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 13px 0;
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .about-muted-link span {
+    color: var(--color-text-tertiary);
+    font-weight: 500;
+  }
+
+  .about-muted-link:hover {
+    color: var(--color-text);
+  }
+
+  @media (max-width: 720px) {
+    .about-hero__media {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .about-timeline-card,
+    .about-card,
+    .about-education-card {
+      padding: 22px 20px;
+    }
+
+    .about-hero__title,
+    .about-section__title,
+    .about-feature h2,
+    .about-cta h2 {
+      overflow-wrap: anywhere;
+    }
+  }
+</style>

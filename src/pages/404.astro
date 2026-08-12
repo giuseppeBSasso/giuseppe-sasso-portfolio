@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Página não encontrada | Giuseppe Sasso"
+  description="A página que você tentou acessar não foi encontrada."
+  ogTitle="Página não encontrada | Giuseppe Sasso"
+  ogDescription="A página que você tentou acessar não foi encontrada."
+  noindex
+>
+  <section class="not-found" aria-labelledby="not-found-title">
+    <p class="eyebrow">404</p>
+    <h1 id="not-found-title">Página não encontrada.</h1>
+    <p>O endereço pode ter mudado ou a página não existe mais.</p>
+    <div class="button-row">
+      <a class="button button--primary" href="/">Voltar para Home</a>
+      <a class="button not-found__secondary" href="/falar-comigo/">Falar comigo</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    width: 100%;
+    max-width: var(--container);
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: clamp(72px, 12vw, 140px) var(--gutter);
+  }
+
+  .not-found h1 {
+    max-width: 18ch;
+    margin: 0 0 18px;
+    font-size: clamp(30px, 4.6vw, 50px);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -.025em;
+    text-wrap: pretty;
+  }
+
+  .not-found p:not(.eyebrow) {
+    max-width: 48ch;
+    margin: 0 0 34px;
+    color: var(--color-text-secondary);
+    font-size: clamp(15px, 1.7vw, 18px);
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+
+  .not-found__secondary {
+    border: var(--border-control);
+    color: var(--color-text);
+  }
+
+  .not-found__secondary:hover {
+    transform: translateY(-2px);
+    border-color: oklch(0.82 0.11 210 / .55);
+    background: rgba(255, 255, 255, .04);
+    color: var(--color-text);
+  }
+
+  @media (max-width: 380px) {
+    .not-found h1 {
+      overflow-wrap: anywhere;
+    }
+  }
+</style>

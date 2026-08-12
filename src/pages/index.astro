@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Giuseppe Sasso — Engenharia de software, IA e soluções digitais"
+  description="Giuseppe Biazotto Sasso — infraestrutura de TI, engenharia de software e criação de sites para negócios locais em Lages/SC."
+  ogTitle="Giuseppe Sasso — Software & Sites"
+  ogDescription="Engenharia de software e sites que trazem clientes, em Lages/SC."
+>
+  <section class="home-hero" aria-labelledby="home-title">
+    <div>
+      <h1 id="home-title" class="home-hero__title fade-up-1">
+        Construo <span class="home-hero__title-cyan">software</span>, exploro IA aplicada e transformo ideias em <span class="home-hero__title-gold">soluções digitais</span>.
+      </h1>
+      <p class="home-hero__intro fade-up-2">
+        Engenheiro de software em formação, com experiência em infraestrutura de TI e foco crescente em inteligência artificial, arquitetura e desenvolvimento de produtos digitais.
+      </p>
+      <div class="button-row fade-up-3">
+        <a class="button button--primary" href="/projetos/">Ver meus projetos</a>
+        <a class="button button--gold-outline" href="/sites/">Sites para negócios</a>
+      </div>
+    </div>
+
+    <div class="home-hero__media fade-up-4">
+      <div class="home-photo">
+        <img src="/uploads/minha-foto.jpeg" alt="Giuseppe Biazotto Sasso" width="522" height="551" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <section class="quick-proof" aria-label="Resumo rápido">
+    <div class="quick-proof__inner">
+      <span class="quick-proof__item"><span class="quick-proof__dot" aria-hidden="true"></span><span><strong>Software</strong> · JavaScript · TypeScript · React · Python</span></span>
+      <span class="quick-proof__item"><span class="quick-proof__dot" aria-hidden="true"></span><span><strong>IA aplicada</strong> · especialização em andamento</span></span>
+      <span class="quick-proof__item"><span class="quick-proof__dot" aria-hidden="true"></span><span><strong>Infraestrutura</strong> · Linux · Redes · Servidores</span></span>
+      <span class="quick-proof__item"><span class="quick-proof__dot" aria-hidden="true"></span><span><strong>Atuação</strong> · Lages/SC e remoto</span></span>
+    </div>
+  </section>
+
+  <section id="portas" class="doors" aria-labelledby="doors-title">
+    <p class="eyebrow">Duas portas, uma marca</p>
+    <h2 id="doors-title" class="doors__title">O que você procura?</h2>
+    <div class="doors__grid">
+      <a class="door-card door-card--technical" href="/projetos/">
+        <p class="door-card__eyebrow">Porta técnica</p>
+        <h3 class="door-card__title">Para empresas de tech e recrutadores</h3>
+        <p class="door-card__meta">Engenharia de Software & IA</p>
+        <p class="door-card__body">Projetos reais envolvendo software, automação, IA aplicada, arquitetura e infraestrutura.</p>
+        <span class="door-card__cta">Ver projetos →</span>
+      </a>
+
+      <a class="door-card door-card--commercial" href="/sites/">
+        <p class="door-card__eyebrow">Porta comercial</p>
+        <h3 class="door-card__title">Para empresas e negócios</h3>
+        <p class="door-card__meta">Sites e soluções digitais</p>
+        <p class="door-card__body">Sites profissionais focados em presença digital, Google e geração de oportunidades.</p>
+        <span class="door-card__cta">Quero melhorar meu negócio →</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

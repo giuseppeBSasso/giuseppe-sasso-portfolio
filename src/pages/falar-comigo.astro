@@ -1,0 +1,504 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const businessWhatsappMessage = "Olá, Giuseppe! Vi seu site e gostaria de conversar sobre um site para o meu negócio.";
+const generalWhatsappMessage = "Olá, Giuseppe! Gostaria de conversar com você.";
+const businessWhatsappHref = `${site.contacts.whatsappHref}?text=${encodeURIComponent(businessWhatsappMessage)}`;
+const generalWhatsappHref = `${site.contacts.whatsappHref}?text=${encodeURIComponent(generalWhatsappMessage)}`;
+
+const directChannels = [
+  {
+    title: "WhatsApp",
+    description: "Para projetos de sites e soluções digitais.",
+    href: generalWhatsappHref,
+    arrow: "↗",
+    external: true,
+    tone: "gold"
+  },
+  {
+    title: "E-mail",
+    description: "Para contato profissional e outras conversas.",
+    href: site.contacts.emailHref,
+    arrow: "→",
+    external: false,
+    tone: "cyan"
+  },
+  {
+    title: "LinkedIn",
+    description: "Carreira, tecnologia e conexões profissionais.",
+    href: site.socials.linkedin,
+    arrow: "↗",
+    external: true,
+    tone: "cyan"
+  },
+  {
+    title: "GitHub",
+    description: "Código, projetos e experimentos públicos.",
+    href: site.socials.github,
+    arrow: "↗",
+    external: true,
+    tone: "cyan"
+  }
+];
+---
+
+<BaseLayout
+  title="Falar comigo | Giuseppe Sasso"
+  description="Entre em contato com Giuseppe Sasso para conversar sobre tecnologia, projetos profissionais, Engenharia de Software ou criação de sites para negócios."
+  ogTitle="Falar comigo | Giuseppe Sasso"
+  ogDescription="Dois caminhos para começar a conversa: tecnologia e carreira, ou criação de sites para negócios. Você fala diretamente comigo."
+>
+  <section class="contact-hero" aria-labelledby="contact-title">
+    <div class="contact-hero__glow" aria-hidden="true"></div>
+    <p class="contact-eyebrow contact-eyebrow--cyan contact-fade-1">Contato</p>
+    <h1 id="contact-title" class="contact-hero__title contact-fade-2">Vamos conversar?</h1>
+    <p class="contact-hero__intro contact-fade-3">
+      Se você chegou até aqui por uma oportunidade profissional, um projeto de tecnologia ou porque precisa de um site para o seu negócio, escolha abaixo o melhor caminho para começarmos a conversa.
+    </p>
+  </section>
+
+  <section class="contact-paths" aria-labelledby="contact-paths-title">
+    <h2 id="contact-paths-title" class="contact-visually-hidden">Escolha um caminho de contato</h2>
+    <div class="contact-paths__grid">
+      <article class="contact-path contact-path--cyan" data-reveal>
+        <div class="contact-path__glow" aria-hidden="true"></div>
+        <p class="contact-path__eyebrow">Tecnologia & carreira</p>
+        <h3>Oportunidades, projetos e tecnologia</h3>
+        <p>Para conversas sobre Engenharia de Software, infraestrutura, IA, projetos, oportunidades profissionais ou possíveis colaborações.</p>
+        <div class="contact-path__actions">
+          <a class="button contact-button contact-button--cyan" href={site.socials.linkedin} target="_blank" rel="noopener">
+            Falar pelo LinkedIn <span aria-hidden="true">↗</span>
+          </a>
+          <a class="button contact-button contact-button--outline-cyan" href={site.contacts.emailHref}>
+            Enviar e-mail <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="contact-path contact-path--gold" data-reveal>
+        <div class="contact-path__glow" aria-hidden="true"></div>
+        <p class="contact-path__eyebrow">Sites para negócios</p>
+        <h3>Precisa de um site para sua empresa?</h3>
+        <p>Se você tem um comércio, empresa ou presta serviços e quer conversar sobre a criação ou melhoria da sua presença digital, pode falar diretamente comigo.</p>
+        <div class="contact-path__actions">
+          <a class="button contact-button contact-button--gold" href={businessWhatsappHref} target="_blank" rel="noopener">
+            Falar pelo WhatsApp <span aria-hidden="true">↗</span>
+          </a>
+          <a class="button contact-button contact-button--outline-gold" href="/sites/">
+            Conhecer o serviço <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="contact-section" aria-labelledby="channels-title">
+    <p class="eyebrow">Canais</p>
+    <h2 id="channels-title" class="contact-section__title">Prefere falar diretamente?</h2>
+    <div class="contact-channel-grid">
+      {directChannels.map((channel) => (
+        <a
+          class:list={["contact-channel-card", `contact-channel-card--${channel.tone}`]}
+          href={channel.href}
+          data-reveal
+          {...(channel.external ? { target: "_blank", rel: "noopener" } : {})}
+        >
+          <span class="contact-channel-card__head">
+            <span>{channel.title}</span>
+            <span aria-hidden="true">{channel.arrow}</span>
+          </span>
+          <span>{channel.description}</span>
+        </a>
+      ))}
+    </div>
+    <div class="contact-base">
+      <span>Base</span>
+      <span>{site.location} · atuação local e remota</span>
+    </div>
+  </section>
+
+  <section class="contact-section contact-section--closing" aria-labelledby="closing-title">
+    <div class="contact-closing">
+      <h2 id="closing-title">Escolha o canal que fizer mais sentido e me conte o contexto.</h2>
+      <p>Uma boa conversa normalmente começa entendendo primeiro o problema que precisa ser resolvido.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-hero,
+  .contact-paths,
+  .contact-section {
+    width: 100%;
+    max-width: var(--container);
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding-inline: var(--gutter);
+  }
+
+  .contact-hero {
+    position: relative;
+    padding-top: clamp(52px, 8vw, 88px);
+    padding-bottom: clamp(36px, 5vw, 56px);
+  }
+
+  .contact-hero__glow {
+    position: absolute;
+    top: -30px;
+    left: var(--gutter);
+    width: min(460px, 60vw);
+    height: 220px;
+    background: radial-gradient(60% 60% at 22% 40%, oklch(0.82 0.11 210 / .09), transparent 72%);
+    filter: blur(22px);
+    pointer-events: none;
+  }
+
+  .contact-eyebrow {
+    position: relative;
+    margin: 0 0 18px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+
+  .contact-eyebrow--cyan {
+    color: var(--color-cyan);
+  }
+
+  .contact-hero__title {
+    position: relative;
+    max-width: 16ch;
+    margin: 0 0 22px;
+    font-size: clamp(30px, 4.6vw, 50px);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -.025em;
+    text-wrap: pretty;
+  }
+
+  .contact-hero__intro {
+    position: relative;
+    max-width: 62ch;
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: clamp(15px, 1.7vw, 18px);
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+
+  .contact-fade-1 {
+    animation: fadeUp .6s .04s both;
+  }
+
+  .contact-fade-2 {
+    animation: fadeUp .6s .1s both;
+  }
+
+  .contact-fade-3 {
+    animation: fadeUp .6s .18s both;
+  }
+
+  .contact-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .contact-paths {
+    padding-bottom: clamp(20px, 3vw, 32px);
+  }
+
+  .contact-paths__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .contact-path {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: clamp(30px, 3.5vw, 44px);
+    border-radius: 20px;
+  }
+
+  .contact-path--cyan {
+    border: 1px solid oklch(0.82 0.11 210 / .2);
+    background: linear-gradient(180deg, oklch(0.82 0.11 210 / .06), rgba(255, 255, 255, .02));
+  }
+
+  .contact-path--gold {
+    border: 1px solid oklch(0.84 0.1 80 / .2);
+    background: linear-gradient(180deg, oklch(0.84 0.1 80 / .06), rgba(255, 255, 255, .02));
+  }
+
+  .contact-path__glow {
+    position: absolute;
+    top: -35%;
+    right: -12%;
+    width: 300px;
+    height: 300px;
+    filter: blur(22px);
+    pointer-events: none;
+  }
+
+  .contact-path--cyan .contact-path__glow {
+    background: radial-gradient(50% 50% at 50% 50%, oklch(0.82 0.11 210 / .12), transparent 70%);
+  }
+
+  .contact-path--gold .contact-path__glow {
+    background: radial-gradient(50% 50% at 50% 50%, oklch(0.84 0.1 80 / .12), transparent 70%);
+  }
+
+  .contact-path__eyebrow,
+  .contact-path h3,
+  .contact-path p,
+  .contact-path__actions {
+    position: relative;
+  }
+
+  .contact-path__eyebrow {
+    margin: 0 0 12px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .contact-path--cyan .contact-path__eyebrow {
+    color: var(--color-cyan);
+  }
+
+  .contact-path--gold .contact-path__eyebrow {
+    color: var(--color-gold-text);
+  }
+
+  .contact-path h3 {
+    margin: 0 0 12px;
+    font-size: clamp(21px, 2.4vw, 26px);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    text-wrap: pretty;
+  }
+
+  .contact-path p:not(.contact-path__eyebrow) {
+    margin: 0 0 26px;
+    color: var(--color-text-secondary);
+    font-size: 15px;
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+
+  .contact-path__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: auto;
+  }
+
+  .contact-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 9px;
+    padding: 13px 22px;
+    border-radius: var(--radius-button);
+    font-size: 15px;
+    font-weight: 600;
+    transition: transform var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), color var(--transition-fast);
+  }
+
+  .contact-button--cyan {
+    background: var(--color-cyan);
+    color: var(--color-bg);
+  }
+
+  .contact-button--cyan:hover {
+    transform: translateY(-2px);
+    color: var(--color-bg);
+    box-shadow: 0 8px 24px rgba(120, 205, 225, .25);
+  }
+
+  .contact-button--gold {
+    background: var(--color-gold);
+    color: var(--color-gold-card-text);
+  }
+
+  .contact-button--gold:hover {
+    transform: translateY(-2px);
+    color: var(--color-gold-card-text);
+    box-shadow: 0 8px 24px oklch(0.84 0.1 80 / .28);
+  }
+
+  .contact-button--cyan span,
+  .contact-button--gold span {
+    opacity: .6;
+  }
+
+  .contact-button--outline-cyan,
+  .contact-button--outline-gold {
+    border: var(--border-control);
+    color: var(--color-text);
+  }
+
+  .contact-button--outline-cyan span,
+  .contact-button--outline-gold span {
+    color: var(--color-text-tertiary);
+    font-weight: 500;
+  }
+
+  .contact-button--outline-cyan:hover {
+    transform: translateY(-2px);
+    border-color: oklch(0.82 0.11 210 / .55);
+    background: rgba(255, 255, 255, .04);
+    color: var(--color-text);
+  }
+
+  .contact-button--outline-gold:hover {
+    transform: translateY(-2px);
+    border-color: oklch(0.84 0.1 80 / .55);
+    background: rgba(255, 255, 255, .04);
+    color: var(--color-text);
+  }
+
+  .contact-section {
+    margin-top: clamp(32px, 5vw, 52px);
+    padding-top: clamp(48px, 7vw, 80px);
+    padding-bottom: clamp(48px, 7vw, 80px);
+    border-top: var(--border-subtle);
+  }
+
+  .contact-section--closing {
+    margin-top: 0;
+    padding-top: clamp(40px, 6vw, 72px);
+    padding-bottom: clamp(56px, 8vw, 96px);
+  }
+
+  .contact-section__title {
+    margin: 0 0 clamp(28px, 4vw, 40px);
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    text-wrap: pretty;
+  }
+
+  .contact-channel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .contact-channel-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px 22px;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 14px;
+    background: var(--color-surface-3);
+    color: var(--color-text);
+    transition: transform var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .contact-channel-card:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, .05);
+    color: var(--color-text);
+  }
+
+  .contact-channel-card--cyan:hover {
+    border-color: oklch(0.82 0.11 210 / .45);
+  }
+
+  .contact-channel-card--gold:hover {
+    border-color: oklch(0.84 0.1 80 / .45);
+  }
+
+  .contact-channel-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    color: var(--color-text);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -.01em;
+  }
+
+  .contact-channel-card__head span:last-child {
+    color: var(--color-text-tertiary);
+    font-weight: 500;
+  }
+
+  .contact-channel-card > span:last-child {
+    color: var(--color-text-secondary);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .contact-base {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    margin-top: clamp(28px, 4vw, 40px);
+  }
+
+  .contact-base span:first-child {
+    color: var(--color-text-tertiary);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .contact-base span:last-child {
+    color: var(--color-text-secondary);
+    font-size: 14px;
+  }
+
+  .contact-closing {
+    max-width: 60ch;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .contact-closing h2 {
+    margin: 0;
+    font-size: clamp(22px, 2.8vw, 30px);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    text-wrap: pretty;
+  }
+
+  .contact-closing p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 16px;
+    line-height: 1.7;
+    text-wrap: pretty;
+  }
+
+  @media (max-width: 380px) {
+    .contact-path,
+    .contact-channel-card {
+      padding: 22px 20px;
+    }
+
+    .contact-hero__title,
+    .contact-path h3,
+    .contact-section__title,
+    .contact-closing h2 {
+      overflow-wrap: anywhere;
+    }
+  }
+</style>

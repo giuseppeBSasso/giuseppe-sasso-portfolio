@@ -1,0 +1,632 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const whatsappMessage = "Olá, Giuseppe! Vi seu site e gostaria de conversar sobre um site para o meu negócio.";
+const whatsappHref = `${site.contacts.whatsappHref}?text=${encodeURIComponent(whatsappMessage)}`;
+
+const problemCards = [
+  {
+    title: "Negócio difícil de encontrar",
+    description: "A empresa depende apenas de redes sociais ou indicação e não possui um espaço próprio para apresentar suas informações."
+  },
+  {
+    title: "Informações espalhadas",
+    description: "Serviços, localização, horário, contato e outras informações importantes podem ficar distribuídos em diferentes canais."
+  },
+  {
+    title: "Primeira impressão",
+    description: "Uma presença digital pouco organizada pode transmitir menos confiança para quem ainda não conhece a empresa."
+  },
+  {
+    title: "Dependência das redes sociais",
+    description: "Instagram e outras redes são importantes, mas um site oferece um espaço próprio para apresentar o negócio."
+  }
+];
+
+const solutionCards = [
+  {
+    icon: "screen",
+    title: "Apresentação profissional",
+    description: "Um site alinhado à identidade e ao tipo de negócio."
+  },
+  {
+    icon: "list",
+    title: "Informações organizadas",
+    description: "Serviços, contato, localização e informações importantes em um único lugar."
+  },
+  {
+    icon: "phone",
+    title: "Experiência no celular",
+    description: "O site funciona adequadamente em smartphones, tablets e computadores."
+  },
+  {
+    icon: "chat",
+    title: "Contato facilitado",
+    description: "Caminhos claros para WhatsApp e outros canais definidos pelo negócio."
+  },
+  {
+    icon: "globe",
+    title: "Presença digital própria",
+    description: "Um espaço da empresa na internet que complementa redes sociais e outros canais."
+  },
+  {
+    icon: "upload",
+    title: "Preparado para evoluir",
+    description: "Estrutura que possa receber novas páginas e conteúdos conforme o negócio crescer."
+  }
+];
+
+const processSteps = [
+  {
+    number: "01",
+    title: "Conversamos sobre seu negócio",
+    description: "Entendo o que a empresa faz, quais informações precisam aparecer e qual objetivo o site deve cumprir."
+  },
+  {
+    number: "02",
+    title: "Estruturamos a solução",
+    description: "Organizo páginas, conteúdo e apresentação visual de acordo com o negócio."
+  },
+  {
+    number: "03",
+    title: "Você acompanha o resultado",
+    description: "O projeto é apresentado para avaliação e ajustes antes da publicação final."
+  },
+  {
+    number: "04",
+    title: "Site no ar",
+    description: "Após aprovação e definição das condições do projeto, o site é publicado."
+  }
+];
+
+const faqs = [
+  {
+    question: "Preciso já ter todos os textos e imagens?",
+    answer: "Não necessariamente. Durante a definição do projeto, organizamos quais informações e materiais serão necessários para construir o site."
+  },
+  {
+    question: "O site funciona no celular?",
+    answer: "Sim. O projeto é desenvolvido de forma responsiva para funcionar adequadamente em diferentes tamanhos de tela."
+  },
+  {
+    question: "Posso pedir alterações antes da publicação?",
+    answer: "O site passa por uma etapa de avaliação e ajustes antes da publicação final."
+  },
+  {
+    question: "Como começo?",
+    answer: "Entre em contato pelo WhatsApp e conte um pouco sobre seu negócio e o tipo de site que você precisa."
+  }
+];
+---
+
+<BaseLayout
+  title="Sites para negócios — Giuseppe Sasso"
+  description="Criação de sites profissionais para empresas, comércios e prestadores de serviços. Atendimento direto com Giuseppe Sasso — do primeiro contato ao site no ar."
+  ogTitle="Sites para negócios — Giuseppe Sasso"
+  ogDescription="Sites profissionais para negócios que querem apresentar melhor a empresa, facilitar o contato com clientes e fortalecer a presença digital."
+  accent="gold"
+>
+  <div class="sites-page">
+    <section class="sites-hero" aria-labelledby="sites-title">
+      <div class="sites-hero__glow" aria-hidden="true"></div>
+      <p class="sites-eyebrow sites-eyebrow--accent sites-fade-1">Sites para negócios</p>
+      <h1 id="sites-title" class="sites-hero__title sites-fade-2">
+        Seu negócio também precisa causar uma boa impressão na <span>internet</span>.
+      </h1>
+      <p class="sites-hero__intro sites-fade-3">
+        Crio sites profissionais para empresas, comércios e prestadores de serviços que querem apresentar melhor o negócio, facilitar o contato com clientes e fortalecer sua presença digital.
+      </p>
+      <div class="button-row sites-fade-4">
+        <a class="button sites-button-primary" href={whatsappHref} target="_blank" rel="noopener">Quero conversar sobre meu site</a>
+        <a class="button sites-button-secondary" href="#como-funciona">Como funciona</a>
+      </div>
+    </section>
+
+    <section class="sites-section" aria-labelledby="presence-title">
+      <p class="eyebrow">Presença digital</p>
+      <h2 id="presence-title" class="sites-section__title">Seu cliente pesquisa antes de entrar em contato.</h2>
+      <div class="sites-grid sites-grid--problem">
+        {problemCards.map((card) => (
+          <article class="sites-card" data-reveal>
+            <h3>{card.title}</h3>
+            <p>{card.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="sites-section" aria-labelledby="solution-title">
+      <p class="sites-eyebrow sites-eyebrow--accent sites-eyebrow--tight">A solução</p>
+      <h2 id="solution-title" class="sites-section__title sites-section__title--wide">Um espaço profissional para apresentar seu negócio.</h2>
+      <div class="sites-grid sites-grid--solution">
+        {solutionCards.map((card) => (
+          <article class="sites-card sites-card--icon" data-reveal>
+            <span class="sites-icon" aria-hidden="true">
+              {card.icon === "screen" && (
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 8h18M8 21h8"></path></svg>
+              )}
+              {card.icon === "list" && (
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h12M8 12h12M8 18h12"></path><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"></path></svg>
+              )}
+              {card.icon === "phone" && (
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="18" rx="2"></rect><path d="M11 18h2"></path></svg>
+              )}
+              {card.icon === "chat" && (
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.5 8.5 0 0 1-.9-3.8A8.38 8.38 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"></path></svg>
+              )}
+              {card.icon === "globe" && (
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg>
+              )}
+              {card.icon === "upload" && (
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v10"></path><path d="m8 7 4-4 4 4"></path><path d="M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"></path></svg>
+              )}
+            </span>
+            <h3>{card.title}</h3>
+            <p>{card.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="como-funciona" class="sites-section sites-section--anchored" aria-labelledby="process-title">
+      <p class="eyebrow">Processo</p>
+      <h2 id="process-title" class="sites-section__title">Do primeiro contato ao site no ar.</h2>
+      <div class="sites-grid sites-grid--process">
+        {processSteps.map((step) => (
+          <article class="sites-card sites-process-card" data-reveal>
+            <span>{step.number}</span>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="sites-section" aria-labelledby="direct-title">
+      <div class="sites-direct">
+        <div class="sites-direct__glow" aria-hidden="true"></div>
+        <p class="sites-eyebrow sites-eyebrow--accent sites-eyebrow--tight">Atendimento direto</p>
+        <h2 id="direct-title">Você conversa com quem está construindo seu site.</h2>
+        <p>O atendimento é feito diretamente comigo, desde a primeira conversa até os ajustes e publicação do projeto. Isso facilita entender o negócio, alinhar expectativas e tomar decisões sem intermediários.</p>
+      </div>
+    </section>
+
+    <section class="sites-section" aria-labelledby="commercial-projects-title">
+      <p class="eyebrow">Trabalhos</p>
+      <h2 id="commercial-projects-title" class="sites-section__title sites-section__title--compact">Projetos para negócios</h2>
+      <div class="sites-soon">
+        <p>Em breve</p>
+        <p>Novos projetos serão adicionados aqui conforme forem concluídos e publicados — com o tipo de negócio, o objetivo do site e a solução entregue.</p>
+      </div>
+    </section>
+
+    <section class="sites-section" aria-labelledby="your-project-title">
+      <div class="sites-text-block">
+        <p class="sites-eyebrow sites-eyebrow--accent sites-eyebrow--tight">Seu projeto</p>
+        <h2 id="your-project-title">Cada negócio tem uma necessidade diferente.</h2>
+        <p>O escopo é definido de acordo com o tipo de site, a quantidade de conteúdo e as necessidades do negócio. Conversamos primeiro para entender o que realmente faz sentido construir.</p>
+        <a class="button sites-button-primary" href={whatsappHref} target="_blank" rel="noopener">Conversar sobre meu site</a>
+      </div>
+    </section>
+
+    <section class="sites-section" aria-labelledby="faq-title">
+      <p class="eyebrow">Perguntas frequentes</p>
+      <h2 id="faq-title" class="sites-section__title sites-section__title--compact">Dúvidas comuns</h2>
+      <div class="sites-faq-list">
+        {faqs.map((faq) => (
+          <article class="sites-faq-item">
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="contato" class="sites-section sites-section--cta sites-section--anchored" aria-labelledby="sites-cta-title">
+      <div class="sites-cta">
+        <div class="sites-cta__glow" aria-hidden="true"></div>
+        <h2 id="sites-cta-title">Vamos colocar seu negócio na internet de forma profissional?</h2>
+        <p>Conte um pouco sobre sua empresa e o que você precisa. A partir daí podemos entender qual tipo de site faz sentido para o seu negócio.</p>
+        <div class="button-row">
+          <a class="button sites-button-primary" href={whatsappHref} target="_blank" rel="noopener">
+            Falar comigo pelo WhatsApp <span aria-hidden="true">↗</span>
+          </a>
+          <a class="button sites-button-secondary" href="/">Voltar para a Home</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  :global(.sites-page ::selection) {
+    background: oklch(0.84 0.1 80 / .25);
+  }
+
+  .sites-hero,
+  .sites-section {
+    width: 100%;
+    max-width: var(--container);
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding-inline: var(--gutter);
+  }
+
+  .sites-hero {
+    position: relative;
+    padding-top: clamp(52px, 8vw, 92px);
+    padding-bottom: clamp(40px, 6vw, 64px);
+  }
+
+  .sites-hero__glow {
+    position: absolute;
+    top: -30px;
+    left: var(--gutter);
+    width: min(460px, 64vw);
+    height: 240px;
+    background: radial-gradient(60% 60% at 22% 40%, oklch(0.84 0.1 80 / .1), transparent 72%);
+    filter: blur(22px);
+    pointer-events: none;
+  }
+
+  .sites-eyebrow {
+    margin: 0 0 18px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+
+  .sites-eyebrow--tight {
+    margin-bottom: 10px;
+    letter-spacing: .14em;
+  }
+
+  .sites-eyebrow--accent {
+    color: var(--color-gold-text);
+  }
+
+  .sites-hero__title {
+    position: relative;
+    max-width: 19ch;
+    margin: 0 0 22px;
+    font-size: clamp(30px, 4.6vw, 50px);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -.025em;
+    text-wrap: pretty;
+  }
+
+  .sites-hero__title span {
+    color: var(--color-gold-text);
+  }
+
+  .sites-hero__intro {
+    position: relative;
+    max-width: 60ch;
+    margin: 0 0 34px;
+    color: var(--color-text-secondary);
+    font-size: clamp(15px, 1.7vw, 18px);
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+
+  .sites-fade-1 {
+    animation: fadeUp .6s .04s both;
+  }
+
+  .sites-fade-2 {
+    animation: fadeUp .6s .1s both;
+  }
+
+  .sites-fade-3 {
+    animation: fadeUp .6s .18s both;
+  }
+
+  .sites-fade-4 {
+    position: relative;
+    animation: fadeUp .6s .26s both;
+  }
+
+  .sites-button-primary {
+    background: var(--color-gold);
+    color: var(--color-gold-card-text);
+  }
+
+  .sites-button-primary:hover {
+    transform: translateY(-2px);
+    color: var(--color-gold-card-text);
+    box-shadow: 0 8px 24px oklch(0.84 0.1 80 / .28);
+  }
+
+  .sites-button-primary span {
+    color: var(--color-gold-card-text);
+    opacity: .55;
+  }
+
+  .sites-button-secondary {
+    border: var(--border-control);
+    color: var(--color-text);
+  }
+
+  .sites-button-secondary:hover {
+    transform: translateY(-2px);
+    border-color: oklch(0.84 0.1 80 / .55);
+    background: rgba(255, 255, 255, .04);
+    color: var(--color-text);
+  }
+
+  .sites-section {
+    padding-top: clamp(48px, 7vw, 84px);
+    padding-bottom: clamp(48px, 7vw, 84px);
+    border-top: var(--border-subtle);
+  }
+
+  .sites-section--anchored {
+    scroll-margin-top: 80px;
+  }
+
+  .sites-section--cta {
+    padding-top: clamp(56px, 8vw, 96px);
+    padding-bottom: clamp(56px, 8vw, 96px);
+  }
+
+  .sites-section__title {
+    max-width: 22ch;
+    margin: 0 0 clamp(32px, 5vw, 48px);
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    text-wrap: pretty;
+  }
+
+  .sites-section__title--wide {
+    max-width: 24ch;
+  }
+
+  .sites-section__title--compact {
+    margin-bottom: clamp(28px, 4vw, 40px);
+  }
+
+  .sites-grid {
+    display: grid;
+    gap: 16px;
+  }
+
+  .sites-grid--problem {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .sites-grid--solution {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .sites-grid--process {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  }
+
+  .sites-card {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding: 26px 24px;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 14px;
+    background: var(--color-surface-3);
+  }
+
+  .sites-card h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -.01em;
+  }
+
+  .sites-card p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .sites-card--icon h3 {
+    margin-top: 2px;
+  }
+
+  .sites-icon {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid oklch(0.84 0.1 80 / .3);
+    border-radius: 9px;
+    background: oklch(0.84 0.1 80 / .12);
+    color: var(--color-gold-text);
+  }
+
+  .sites-process-card {
+    gap: 10px;
+  }
+
+  .sites-process-card > span {
+    color: var(--color-gold-text);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 14px;
+    letter-spacing: .06em;
+  }
+
+  .sites-direct {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(32px, 5vw, 52px);
+    border: 1px solid oklch(0.84 0.1 80 / .18);
+    border-radius: 20px;
+    background: linear-gradient(180deg, oklch(0.84 0.1 80 / .06), rgba(255, 255, 255, .02));
+  }
+
+  .sites-direct__glow {
+    position: absolute;
+    top: -40%;
+    right: -8%;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(50% 50% at 50% 50%, oklch(0.84 0.1 80 / .12), transparent 70%);
+    filter: blur(24px);
+    pointer-events: none;
+  }
+
+  .sites-direct h2,
+  .sites-direct p {
+    position: relative;
+  }
+
+  .sites-direct h2,
+  .sites-text-block h2,
+  .sites-next-heading {
+    max-width: 22ch;
+    margin: 0 0 16px;
+    font-size: clamp(22px, 2.8vw, 32px);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    text-wrap: pretty;
+  }
+
+  .sites-direct > p:last-child {
+    max-width: 62ch;
+    margin: 0;
+    color: var(--color-text-raised);
+    font-size: 16px;
+    line-height: 1.7;
+    text-wrap: pretty;
+  }
+
+  .sites-soon {
+    position: relative;
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: clamp(30px, 4vw, 44px);
+    border: 1px dashed rgba(255, 255, 255, .16);
+    border-radius: var(--radius-card);
+    background: var(--color-surface-2);
+  }
+
+  .sites-soon p:first-child {
+    margin: 0;
+    color: var(--color-gold-text);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .sites-soon p:last-child,
+  .sites-text-block p {
+    max-width: 60ch;
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 16px;
+    line-height: 1.7;
+    text-wrap: pretty;
+  }
+
+  .sites-text-block {
+    max-width: 720px;
+  }
+
+  .sites-text-block h2 {
+    max-width: 24ch;
+  }
+
+  .sites-text-block p {
+    margin-bottom: 30px;
+  }
+
+  .sites-faq-list {
+    max-width: 820px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .sites-faq-item {
+    padding: 22px 24px;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 14px;
+    background: var(--color-surface-3);
+  }
+
+  .sites-faq-item h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -.01em;
+  }
+
+  .sites-faq-item p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+
+  .sites-cta {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(36px, 5vw, 60px) clamp(28px, 4vw, 52px);
+    border: 1px solid oklch(0.84 0.1 80 / .18);
+    border-radius: 22px;
+    background: var(--color-surface-3);
+  }
+
+  .sites-cta__glow {
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 440px;
+    height: 440px;
+    background: radial-gradient(50% 50% at 50% 50%, oklch(0.84 0.1 80 / .12), transparent 70%);
+    filter: blur(24px);
+    pointer-events: none;
+  }
+
+  .sites-cta h2,
+  .sites-cta p,
+  .sites-cta .button-row {
+    position: relative;
+  }
+
+  .sites-cta h2 {
+    max-width: 24ch;
+    margin: 0 0 14px;
+    font-size: clamp(24px, 3.2vw, 38px);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    text-wrap: pretty;
+  }
+
+  .sites-cta p {
+    max-width: 60ch;
+    margin: 0 0 30px;
+    color: var(--color-text-secondary);
+    font-size: 16px;
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+
+  @media (max-width: 380px) {
+    .sites-card,
+    .sites-faq-item {
+      padding: 22px 20px;
+    }
+
+    .sites-button-primary,
+    .sites-button-secondary {
+      width: 100%;
+    }
+  }
+</style>

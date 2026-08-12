@@ -1,0 +1,858 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const processSteps = [
+  {
+    number: "01",
+    title: "Problema",
+    description: "Entender o problema e o contexto antes de escolher tecnologia."
+  },
+  {
+    number: "02",
+    title: "Produto",
+    description: "Definir requisitos, fluxo, experiência e prioridades."
+  },
+  {
+    number: "03",
+    title: "Construção",
+    description: "Desenvolver e validar a solução com software, ferramentas e desenvolvimento assistido por IA."
+  },
+  {
+    number: "04",
+    title: "Evolução",
+    description: "Testar, observar, documentar e melhorar continuamente."
+  }
+];
+
+const precifi3dStack = ["React", "Vite", "TypeScript", "Supabase", "PostgreSQL", "Stripe", "PostHog", "Sentry", "Tailwind CSS", "shadcn/ui"];
+const licenseGuardStack = ["Chrome MV3", "JavaScript", "Vite", "Supabase", "PostgreSQL", "Edge Functions", "Stripe", "Resend"];
+const portfolioStack = ["Astro", "Design System", "SEO", "Responsividade"];
+---
+
+<BaseLayout
+  title="Projetos — Giuseppe Sasso"
+  description="Projetos de Giuseppe Biazotto Sasso — produtos e aplicações reais em engenharia de software e IA aplicada, apresentados como estudos de caso."
+  ogTitle="Projetos — Giuseppe Sasso"
+  ogDescription="Produtos, aplicações e experimentos que transformam aprendizado, problemas reais e decisões técnicas em soluções funcionais."
+>
+  <section class="projects-hero" aria-labelledby="projects-title">
+    <div class="projects-hero__glow" aria-hidden="true"></div>
+    <p class="projects-eyebrow projects-eyebrow--accent projects-fade-1">Projetos</p>
+    <h1 id="projects-title" class="projects-hero__title projects-fade-2">
+      Projetos são onde conhecimento vira <span>prática</span>.
+    </h1>
+    <p class="projects-hero__intro projects-fade-3">
+      Produtos, aplicações e experimentos que desenvolvo para transformar aprendizado, problemas reais e decisões técnicas em soluções funcionais.
+    </p>
+    <div class="button-row projects-fade-4">
+      <a class="button button--primary" href="#destaque">Ver projetos</a>
+      <a class="button projects-button-secondary" href={site.socials.github} target="_blank" rel="noopener">
+        Ver GitHub <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="destaque" class="projects-section projects-section--anchored" aria-labelledby="featured-title">
+    <p class="eyebrow">Projetos em destaque</p>
+    <h2 id="featured-title" class="projects-section__title projects-section__title--featured">Cada projeto é um estudo de caso</h2>
+
+    <div class="project-case-list">
+      <article id="precifi3d" class="project-case" data-reveal>
+        <div class="project-case__media">
+          <div class="project-case__media-glow" aria-hidden="true"></div>
+          <div class="project-case__image-frame">
+            <img
+              src="/uploads/projetos/precifi3d.png"
+              alt="Painel interno do Precifi3D — tela de primeiros passos do prestador"
+              width="1438"
+              height="731"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="project-case__content">
+          <div class="project-case__heading-row">
+            <span class="project-case__number">01</span>
+            <span class="projects-status-badge projects-status-badge--cyan">Em evolução</span>
+          </div>
+          <p class="project-case__meta">SaaS · Produto digital</p>
+          <h3>Precifi3D</h3>
+          <p class="project-case__lead">
+            Plataforma SaaS para makers, prestadores e pequenos negócios de impressão 3D, criada para profissionalizar a precificação, geração de orçamentos e organização da operação.
+          </p>
+          <p class="project-case__body">
+            Centraliza cálculos, custos, materiais, margens, histórico e propostas para reduzir erros de precificação e tornar o processo mais organizado e profissional.
+          </p>
+          <div class="project-problem-box">
+            <p class="project-problem-box__label">Problema</p>
+            <p>Prestadores de impressão 3D muitas vezes definem preços sem considerar corretamente todos os custos envolvidos, o que pode gerar cobranças inconsistentes, margens incorretas e até prejuízo.</p>
+            <p>Além disso, propostas, materiais e informações da operação costumam ficar dispersos, dificultando a organização e a profissionalização do serviço.</p>
+          </div>
+          <p class="project-stack-label">Stack</p>
+          <div class="project-tag-list" aria-label="Stack do Precifi3D">
+            {precifi3dStack.map((tag) => <span>{tag}</span>)}
+          </div>
+          <p class="project-case__role"><strong>Meu papel · </strong>idealização do produto, definição de funcionalidades e fluxos, decisões de arquitetura, desenvolvimento assistido por IA, testes e evolução contínua da plataforma.</p>
+          <div class="project-case__actions">
+            <a class="button button--primary project-case__primary-link" href="https://precifi3d.com/" target="_blank" rel="noopener noreferrer">
+              Ver projeto <span aria-hidden="true">↗</span>
+            </a>
+            <span class="project-unavailable">
+              Estudo de caso <span>em breve</span>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article id="license-guard" class="project-case project-case--reversed" data-reveal>
+        <div class="project-case__media">
+          <div class="project-case__media-glow project-case__media-glow--right" aria-hidden="true"></div>
+          <div class="project-case__image-frame">
+            <img
+              src="/uploads/projetos/license-guard.png"
+              alt="Tela principal autenticada da extensão Precifi3D License Guard analisando uma licença"
+              width="668"
+              height="661"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="project-case__content">
+          <div class="project-case__heading-row">
+            <span class="project-case__number">02</span>
+            <span class="projects-status-badge projects-status-badge--gold">Em desenvolvimento</span>
+          </div>
+          <p class="project-case__meta">Chrome Extension · Software</p>
+          <h3>Precifi3D License Guard</h3>
+          <p class="project-case__lead">
+            Extensão para Google Chrome que ajuda usuários a identificar, interpretar e organizar informações de licença de modelos para impressão 3D antes de utilizá-los ou comercializá-los.
+          </p>
+          <p class="project-case__body">
+            A ferramenta apresenta permissões e restrições de forma mais clara e permite manter um histórico organizado das licenças analisadas.
+          </p>
+          <div class="project-problem-box">
+            <p class="project-problem-box__label">Problema</p>
+            <p>Informações de licença de modelos 3D ficam distribuídas em diferentes plataformas e nem sempre são fáceis de interpretar ou registrar, principalmente quando existe intenção de uso comercial.</p>
+            <p class="project-problem-box__label project-problem-box__label--gold">O que facilita</p>
+            <p>Entender se um modelo pode ser utilizado comercialmente e manter um histórico organizado das licenças analisadas.</p>
+          </div>
+          <p class="project-stack-label">Stack</p>
+          <div class="project-tag-list" aria-label="Stack do Precifi3D License Guard">
+            {licenseGuardStack.map((tag) => <span>{tag}</span>)}
+          </div>
+          <p class="project-case__role"><strong>Meu papel · </strong>definição do produto e requisitos, desenho dos fluxos de análise e organização das licenças, decisões de arquitetura, desenvolvimento assistido por IA, testes e evolução técnica da extensão.</p>
+          <div class="project-case__actions">
+            <span class="project-unavailable">
+              Estudo de caso <span>em breve</span>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article id="giuseppe-sasso" class="project-case" data-reveal>
+        <div class="project-case__media">
+          <div class="project-case__media-glow project-case__media-glow--gold" aria-hidden="true"></div>
+          <div class="project-case__image-frame project-case__image-frame--contain">
+            <img
+              src="/uploads/projetos/giuseppe-sasso.png"
+              alt="Captura da página inicial do portfólio giuseppe.sasso"
+              width="1145"
+              height="834"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="project-case__content">
+          <div class="project-case__heading-row">
+            <span class="project-case__number">03</span>
+            <span class="projects-status-badge projects-status-badge--cyan">Em evolução</span>
+          </div>
+          <p class="project-case__meta">Portfólio · Web</p>
+          <h3>giuseppe.sasso</h3>
+          <p class="project-case__lead">
+            Portfólio pessoal desenvolvido como site estático em Astro, reunindo trajetória profissional, projetos de engenharia, IA aplicada e uma frente comercial para sites de negócios. Estruturado com foco em performance, SEO, acessibilidade e responsividade.
+          </p>
+          <div class="project-tag-list" aria-label="Stack do portfólio giuseppe.sasso">
+            {portfolioStack.map((tag) => <span>{tag}</span>)}
+          </div>
+          <p class="project-case__role"><strong>Meu papel · </strong>concepção do produto, arquitetura da informação, conteúdo, Design System, implementação frontend, SEO técnico e desenvolvimento assistido por IA.</p>
+          <div class="project-case__actions">
+            <span class="project-unavailable project-unavailable--muted">
+              Estudo de caso <span>em breve</span>
+            </span>
+            <span class="project-unavailable project-unavailable--muted" data-future-url="https://giuseppesasso.com.br">
+              Ver ao vivo <span>em breve</span>
+            </span>
+            <span class="project-unavailable project-unavailable--muted">
+              GitHub <span>em breve</span>
+            </span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="projects-section" aria-labelledby="process-title">
+    <p class="eyebrow">Processo</p>
+    <h2 id="process-title" class="projects-section__title">Da ideia à solução</h2>
+    <div class="projects-process-grid">
+      {processSteps.map((step) => (
+        <article class="projects-process-card" data-reveal>
+          <span>{step.number}</span>
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="projects-section" aria-labelledby="ai-title">
+    <div class="projects-text-block">
+      <p class="eyebrow">Forma de trabalho</p>
+      <h2 id="ai-title" class="projects-section__title projects-section__title--compact">IA como ferramenta de engenharia</h2>
+      <p>Utilizo inteligência artificial como apoio no desenvolvimento, pesquisa, análise, documentação e implementação dos projetos. As decisões sobre produto, arquitetura, requisitos e validação permanecem parte fundamental do processo.</p>
+    </div>
+  </section>
+
+  <section class="projects-section" aria-labelledby="next-title">
+    <div class="projects-next">
+      <p class="projects-eyebrow projects-eyebrow--accent">Em construção</p>
+      <h2 id="next-title">O próximo capítulo será IA aplicada.</h2>
+      <p>Conforme avanço nos estudos de inteligência artificial e arquitetura de soluções, novos projetos serão publicados aqui — com código, arquitetura, decisões técnicas e aprendizados.</p>
+    </div>
+  </section>
+
+  <section class="projects-section projects-section--cta" aria-labelledby="projects-cta-title">
+    <div class="projects-cta">
+      <div class="projects-cta__glow" aria-hidden="true"></div>
+      <h2 id="projects-cta-title">Código mostra implementação. Projetos mostram decisões.</h2>
+      <p>Aqui você acompanha não apenas o que construo, mas também como os projetos evoluem e quais decisões existem por trás das soluções.</p>
+      <div class="button-row">
+        <a class="button button--primary" href={site.socials.github} target="_blank" rel="noopener">
+          Ver GitHub <span aria-hidden="true">↗</span>
+        </a>
+        <a class="button projects-button-secondary" href="/sobre/">Conhecer minha trajetória</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .projects-hero,
+  .projects-section {
+    width: 100%;
+    max-width: var(--container);
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding-inline: var(--gutter);
+  }
+
+  .projects-hero {
+    position: relative;
+    padding-top: clamp(52px, 8vw, 92px);
+    padding-bottom: clamp(40px, 6vw, 64px);
+  }
+
+  .projects-hero__glow {
+    position: absolute;
+    top: -30px;
+    left: var(--gutter);
+    width: min(420px, 60vw);
+    height: 220px;
+    background: radial-gradient(60% 60% at 20% 40%, oklch(0.82 0.11 210 / .09), transparent 72%);
+    filter: blur(20px);
+    pointer-events: none;
+  }
+
+  .projects-eyebrow {
+    margin: 0 0 18px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+
+  .projects-eyebrow--accent {
+    color: var(--color-cyan);
+  }
+
+  .projects-hero__title {
+    position: relative;
+    max-width: 20ch;
+    margin: 0 0 22px;
+    font-size: clamp(30px, 4.6vw, 50px);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -.025em;
+    text-wrap: pretty;
+  }
+
+  .projects-hero__title span {
+    color: var(--color-cyan);
+  }
+
+  .projects-hero__intro {
+    position: relative;
+    max-width: 60ch;
+    margin: 0 0 34px;
+    color: var(--color-text-secondary);
+    font-size: clamp(15px, 1.7vw, 18px);
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+
+  .projects-fade-1 {
+    animation: fadeUp .6s .04s both;
+  }
+
+  .projects-fade-2 {
+    animation: fadeUp .6s .1s both;
+  }
+
+  .projects-fade-3 {
+    animation: fadeUp .6s .18s both;
+  }
+
+  .projects-fade-4 {
+    position: relative;
+    animation: fadeUp .6s .26s both;
+  }
+
+  .projects-button-secondary {
+    border: var(--border-control);
+    color: var(--color-text);
+  }
+
+  .projects-button-secondary span {
+    color: var(--color-text-tertiary);
+    font-weight: 500;
+  }
+
+  .projects-button-secondary:hover {
+    transform: translateY(-2px);
+    border-color: oklch(0.82 0.11 210 / .55);
+    background: rgba(255, 255, 255, .04);
+    color: var(--color-text);
+  }
+
+  .projects-section {
+    padding-top: clamp(48px, 7vw, 84px);
+    padding-bottom: clamp(48px, 7vw, 84px);
+    border-top: var(--border-subtle);
+  }
+
+  .projects-section--anchored {
+    scroll-margin-top: 80px;
+  }
+
+  .projects-section--cta {
+    padding-top: clamp(56px, 8vw, 96px);
+    padding-bottom: clamp(56px, 8vw, 96px);
+  }
+
+  .projects-section__title {
+    margin: 0 0 40px;
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    text-wrap: pretty;
+  }
+
+  .projects-section__title--featured {
+    max-width: 22ch;
+    margin-bottom: clamp(40px, 6vw, 60px);
+  }
+
+  .projects-section__title--compact {
+    margin-bottom: 18px;
+  }
+
+  .project-case-list {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(52px, 8vw, 96px);
+  }
+
+  .project-case {
+    display: flex;
+    align-items: center;
+    gap: clamp(28px, 4vw, 52px);
+    flex-wrap: wrap;
+    scroll-margin-top: 88px;
+  }
+
+  .project-case--reversed {
+    direction: rtl;
+  }
+
+  .project-case--reversed > * {
+    direction: ltr;
+  }
+
+  .project-case__media {
+    position: relative;
+    flex: 1 1 360px;
+    min-width: 0;
+  }
+
+  .project-case__content {
+    flex: 1 1 340px;
+    min-width: 0;
+  }
+
+  .project-case__media-glow {
+    position: absolute;
+    inset: -8% -6%;
+    border-radius: 24px;
+    background: radial-gradient(55% 55% at 30% 40%, oklch(0.82 0.11 210 / .12), transparent 72%);
+    filter: blur(18px);
+    pointer-events: none;
+  }
+
+  .project-case__media-glow--right {
+    background: radial-gradient(55% 55% at 70% 40%, oklch(0.82 0.11 210 / .12), transparent 72%);
+  }
+
+  .project-case__media-glow--gold {
+    background: radial-gradient(55% 55% at 30% 40%, oklch(0.84 0.1 80 / .08), transparent 72%);
+  }
+
+  .project-case__image-frame,
+  .project-preview {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 16px;
+    background: #0e1013;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, .4);
+  }
+
+  .project-case__image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left top;
+  }
+
+  .project-case__image-frame--contain img {
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .project-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: rgba(255, 255, 255, .1);
+    background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .035) 0 15px, rgba(255, 255, 255, .012) 15px 30px), #0e1013;
+    box-shadow: none;
+  }
+
+  .project-preview__dots {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    display: flex;
+    gap: 6px;
+  }
+
+  .project-preview__dots span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .14);
+  }
+
+  .project-preview__dots span:nth-child(2) {
+    background: rgba(255, 255, 255, .1);
+  }
+
+  .project-preview__dots span:nth-child(3) {
+    background: rgba(255, 255, 255, .07);
+  }
+
+  .project-preview > span {
+    padding: 6px 14px;
+    border: var(--border-card);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .02);
+    color: var(--color-text-tertiary);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px;
+    letter-spacing: .04em;
+  }
+
+  .project-case__heading-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .project-case__number {
+    color: oklch(0.82 0.11 210 / .38);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -.02em;
+  }
+
+  .projects-status-badge {
+    display: inline-block;
+    padding: 4px 11px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+
+  .projects-status-badge--cyan {
+    border: 1px solid oklch(0.82 0.11 210 / .32);
+    background: oklch(0.82 0.11 210 / .12);
+    color: var(--color-cyan);
+  }
+
+  .projects-status-badge--gold {
+    border: 1px solid oklch(0.84 0.1 80 / .3);
+    background: oklch(0.84 0.1 80 / .12);
+    color: var(--color-gold);
+  }
+
+  .project-case__meta {
+    margin: 0 0 8px;
+    color: var(--color-cyan);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .project-case h3 {
+    margin: 0 0 14px;
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 600;
+    letter-spacing: -.02em;
+  }
+
+  #giuseppe-sasso h3 {
+    margin-bottom: 12px;
+    font-size: clamp(22px, 2.6vw, 28px);
+    letter-spacing: -.015em;
+  }
+
+  .project-case__lead {
+    max-width: 52ch;
+    margin: 0 0 10px;
+    color: var(--color-text-secondary);
+    font-size: 15px;
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+
+  .project-case__body {
+    max-width: 52ch;
+    margin: 0 0 22px;
+    color: var(--color-text-tertiary);
+    font-size: 14px;
+    line-height: 1.6;
+    text-wrap: pretty;
+  }
+
+  .project-problem-box {
+    max-width: 54ch;
+    margin: 0 0 22px;
+    padding: 14px 16px;
+    border-left: 2px solid oklch(0.82 0.11 210 / .5);
+    border-radius: 0 10px 10px 0;
+    background: oklch(0.82 0.11 210 / .05);
+  }
+
+  .project-problem-box p {
+    max-width: 50ch;
+    margin: 0 0 12px;
+    color: var(--color-text-raised);
+    font-size: 14px;
+    line-height: 1.6;
+    text-wrap: pretty;
+  }
+
+  .project-problem-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .project-problem-box__label {
+    margin-bottom: 5px !important;
+    color: var(--color-cyan) !important;
+    font-size: 11px !important;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .project-problem-box__label--gold {
+    color: var(--color-gold) !important;
+  }
+
+  .project-stack-label {
+    margin: 0 0 10px;
+    color: var(--color-text-tertiary);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .project-tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .project-tag-list span {
+    padding: 4px 10px;
+    border: var(--border-card);
+    border-radius: 7px;
+    background: var(--color-surface-5);
+    color: var(--color-text-raised);
+    font-size: 12px;
+  }
+
+  .project-case__role {
+    max-width: 54ch;
+    margin: 0 0 24px;
+    color: var(--color-text-tertiary);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .project-case__role strong {
+    color: var(--color-text-raised);
+    font-weight: 600;
+  }
+
+  .project-case__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px 22px;
+  }
+
+  .project-case__primary-link {
+    padding: 11px 22px;
+    font-size: 14px;
+  }
+
+  .project-case__primary-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(120, 205, 225, .28);
+  }
+
+  .project-unavailable {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-text-tertiary);
+    cursor: default;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .project-unavailable--muted {
+    color: #4e545c;
+  }
+
+  .project-unavailable span {
+    padding: 2px 8px;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 20px;
+    color: #4e545c;
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .projects-text-link,
+  .projects-muted-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .projects-text-link {
+    color: var(--color-cyan);
+  }
+
+  .projects-text-link span,
+  .projects-muted-link span {
+    color: var(--color-text-tertiary);
+    font-weight: 500;
+  }
+
+  .projects-text-link:hover {
+    color: var(--color-cyan-hover);
+  }
+
+  .projects-muted-link {
+    color: var(--color-text-secondary);
+  }
+
+  .projects-muted-link:hover {
+    color: var(--color-text);
+  }
+
+  .projects-process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 16px;
+  }
+
+  .projects-process-card {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding: 24px 22px;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 14px;
+    background: var(--color-surface-3);
+  }
+
+  .projects-process-card span {
+    color: var(--color-cyan);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px;
+    letter-spacing: .08em;
+  }
+
+  .projects-process-card h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -.01em;
+  }
+
+  .projects-process-card p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .projects-text-block {
+    max-width: 720px;
+  }
+
+  .projects-text-block p:last-child {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 16px;
+    line-height: 1.7;
+    text-wrap: pretty;
+  }
+
+  .projects-next {
+    position: relative;
+    max-width: 760px;
+    padding: clamp(30px, 4vw, 44px);
+    border: 1px dashed rgba(255, 255, 255, .16);
+    border-radius: var(--radius-card);
+    background: var(--color-surface-2);
+  }
+
+  .projects-next h2 {
+    max-width: 22ch;
+    margin: 0 0 14px;
+    font-size: clamp(22px, 2.8vw, 30px);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    text-wrap: pretty;
+  }
+
+  .projects-next p:last-child {
+    max-width: 60ch;
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 15px;
+    line-height: 1.7;
+    text-wrap: pretty;
+  }
+
+  .projects-cta {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(36px, 5vw, 60px) clamp(28px, 4vw, 52px);
+    border: var(--border-card);
+    border-radius: 22px;
+    background: var(--color-surface-3);
+  }
+
+  .projects-cta__glow {
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(50% 50% at 50% 50%, oklch(0.82 0.11 210 / .1), transparent 70%);
+    filter: blur(24px);
+    pointer-events: none;
+  }
+
+  .projects-cta h2,
+  .projects-cta p,
+  .projects-cta .button-row {
+    position: relative;
+  }
+
+  .projects-cta h2 {
+    max-width: 24ch;
+    margin: 0 0 14px;
+    font-size: clamp(24px, 3.2vw, 38px);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    text-wrap: pretty;
+  }
+
+  .projects-cta p {
+    max-width: 58ch;
+    margin: 0 0 30px;
+    color: var(--color-text-secondary);
+    font-size: 16px;
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+
+  @media (max-width: 720px) {
+    .project-case,
+    .project-case--reversed {
+      direction: ltr;
+    }
+
+    .project-case__heading-row {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .project-problem-box,
+    .projects-process-card {
+      padding: 22px 20px;
+    }
+
+    .projects-hero__title,
+    .project-case h3,
+    .projects-section__title {
+      overflow-wrap: anywhere;
+    }
+  }
+</style>
