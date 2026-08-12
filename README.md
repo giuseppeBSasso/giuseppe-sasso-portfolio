@@ -2,7 +2,7 @@
 
 Portfólio pessoal de Giuseppe Biazotto Sasso, criado para apresentar trajetória técnica, projetos de engenharia de software, estudos em IA aplicada e uma frente comercial para sites de negócios.
 
-O domínio oficial do projeto é `giuseppesasso.com.br`. O deploy público está em preparação.
+O site em produção está disponível em `https://giuseppesasso.com.br`.
 
 ## Stack
 
