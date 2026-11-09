@@ -6,6 +6,7 @@ export const site = {
   location: "Lages/SC",
   contacts: {
     whatsappLabel: "WhatsApp — (49) 99953-3419",
+    telephone: "+55-49-99953-3419",
     whatsappHref: "https://wa.me/5549999533419",
     emailLabel: "contato@giuseppesasso.com.br",
     emailHref: "mailto:contato@giuseppesasso.com.br",

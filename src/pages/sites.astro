@@ -5,6 +5,35 @@ import { site } from "../data/site";
 const whatsappMessage = "Olá, Giuseppe! Vi seu site e gostaria de conversar sobre um site para o meu negócio.";
 const whatsappHref = `${site.contacts.whatsappHref}?text=${encodeURIComponent(whatsappMessage)}`;
 
+const siteUrl = Astro.site ?? new URL("https://giuseppesasso.com.br");
+const pageDescription = "Criação de sites profissionais para empresas, comércios e prestadores de serviços. Atendimento direto com Giuseppe Sasso — do primeiro contato ao site no ar.";
+
+// Dados estruturados do serviço (alinhados ao Perfil da Empresa no Google).
+const serviceSchema = [
+  {
+    "@type": "ProfessionalService",
+    "@id": new URL("/sites/#service", siteUrl).toString(),
+    name: "giuseppe.sasso",
+    description: pageDescription,
+    url: new URL("/sites/", siteUrl).toString(),
+    image: new URL("/social/og-default.png", siteUrl).toString(),
+    telephone: site.contacts.telephone,
+    email: site.contacts.commercialEmailLabel,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Lages",
+      addressRegion: "SC",
+      addressCountry: "BR"
+    },
+    areaServed: {
+      "@type": "City",
+      name: "Lages",
+      containedInPlace: { "@type": "State", name: "Santa Catarina" }
+    },
+    founder: { "@id": new URL("/#person", siteUrl).toString() }
+  }
+];
+
 const problemCards = [
   {
     title: "Negócio difícil de encontrar",
@@ -102,10 +131,11 @@ const faqs = [
 
 <BaseLayout
   title="Sites para negócios — Giuseppe Sasso"
-  description="Criação de sites profissionais para empresas, comércios e prestadores de serviços. Atendimento direto com Giuseppe Sasso — do primeiro contato ao site no ar."
+  description={pageDescription}
   ogTitle="Sites para negócios — Giuseppe Sasso"
   ogDescription="Sites profissionais para negócios que querem apresentar melhor a empresa, facilitar o contato com clientes e fortalecer a presença digital."
   accent="gold"
+  schema={serviceSchema}
 >
   <div class="sites-page">
     <section class="sites-hero" aria-labelledby="sites-title">

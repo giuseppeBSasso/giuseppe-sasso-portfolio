@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { site } from "../data/site";
 import "../styles/global.css";
 
 interface Props {
@@ -10,6 +11,7 @@ interface Props {
   ogDescription?: string;
   accent?: "cyan" | "gold";
   noindex?: boolean;
+  schema?: Record<string, unknown>[];
 }
 
 const {
@@ -18,13 +20,47 @@ const {
   ogTitle = title,
   ogDescription = description,
   accent = "cyan",
-  noindex = false
+  noindex = false,
+  schema = []
 } = Astro.props;
 
 const siteUrl = Astro.site ?? new URL("https://giuseppesasso.com.br");
 const canonicalUrl = noindex ? undefined : new URL(Astro.url.pathname, siteUrl).toString();
 const ogImageUrl = new URL("/social/og-default.png", siteUrl).toString();
 const ogImageAlt = "Imagem social do portfólio de Giuseppe Sasso";
+
+// Dados estruturados (schema.org) — invisíveis ao visitante, lidos por buscadores.
+const siteRoot = new URL("/", siteUrl).toString();
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${siteRoot}#person`,
+      name: site.name,
+      url: siteRoot,
+      image: new URL("/uploads/minha-foto.jpeg", siteUrl).toString(),
+      sameAs: [site.socials.github, site.socials.linkedin],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Lages",
+        addressRegion: "SC",
+        addressCountry: "BR"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteRoot}#website`,
+      url: siteRoot,
+      name: "giuseppe.sasso",
+      inLanguage: "pt-BR",
+      publisher: { "@id": `${siteRoot}#person` }
+    },
+    ...schema
+  ]
+};
+// Escapa "<" para que o JSON nunca consiga fechar a tag <script>.
+const structuredDataJson = JSON.stringify(structuredData).replace(/</g, "\\u003c");
 ---
 
 <!doctype html>
@@ -48,6 +84,7 @@ const ogImageAlt = "Imagem social do portfólio de Giuseppe Sasso";
     <meta property="og:site_name" content="Giuseppe Sasso" />
     <meta property="og:locale" content="pt_BR" />
     <link rel="icon" href="/brand/favicon.svg" type="image/svg+xml" />
+    <script type="application/ld+json" set:html={structuredDataJson} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
