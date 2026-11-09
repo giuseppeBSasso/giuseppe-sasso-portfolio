@@ -26,7 +26,7 @@
   --radius-card: 18px;
   --radius-photo: 24px;
   --shadow-photo: 0 18px 48px rgba(0, 0, 0, .45);
-  --font-sans: "Geist", system-ui, -apple-system, sans-serif;
+  --font-sans: "Geist Variable", system-ui, -apple-system, sans-serif;
   --transition-fast: .2s ease;
   --transition-medium: .25s ease;
 }

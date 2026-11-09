@@ -10,7 +10,7 @@ O site em produção está disponível em `https://giuseppesasso.com.br`.
 - TypeScript
 - CSS com variáveis globais e estilos scoped por página
 - Geração totalmente estática
-- Google Fonts com Geist
+- Fonte Geist hospedada localmente (Fontsource, sem requisições ao Google Fonts)
 - Sem adapter, backend, SPA ou runtime de servidor
 - Sem React, Vue ou Svelte
 

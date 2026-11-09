@@ -6,7 +6,7 @@ Este documento registra as regras permanentes do Design System do portfolio pess
 
 - Fundo principal: `#0B0C0F`.
 - Superficies elevadas: variacoes sutis de branco translucido entre `.02` e `.05`.
-- Fonte: Geist via Google Fonts, pesos 400, 500, 600 e 700.
+- Fonte: Geist (versao variavel) hospedada localmente via `@fontsource-variable/geist`, usando os pesos 400, 500, 600 e 700.
 - Fallback: `system-ui, -apple-system, sans-serif`.
 - Container principal: `max-width: 1100px`.
 - Gutter padrao: `24px`, reduzido em telas menores.
