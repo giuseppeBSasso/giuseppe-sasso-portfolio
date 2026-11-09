@@ -10,9 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "7.1.0"
+    "astro": "7.4.8"
   },
-  "devDependencies": {},
   "allowScripts": {
     "esbuild@0.28.2": true
   }
