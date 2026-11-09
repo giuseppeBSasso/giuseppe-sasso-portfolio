@@ -92,9 +92,10 @@ const structuredDataJson = JSON.stringify(structuredData).replace(/</g, "\\u003c
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <div class="site-shell">
       <Header accent={accent} />
-      <main>
+      <main id="conteudo" tabindex="-1">
         <slot />
       </main>
       <Footer />
