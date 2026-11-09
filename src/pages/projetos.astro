@@ -109,12 +109,12 @@ const portfolioStack = ["Astro", "Design System", "SEO", "Responsividade"];
       <article id="license-guard" class="project-case project-case--reversed" data-reveal>
         <div class="project-case__media">
           <div class="project-case__media-glow project-case__media-glow--right" aria-hidden="true"></div>
-          <div class="project-case__image-frame">
+          <div class="project-case__image-frame project-case__image-frame--right">
             <img
               src="/uploads/projetos/license-guard.png"
               alt="Tela principal autenticada da extensão Precifi3D License Guard analisando uma licença"
-              width="668"
-              height="661"
+              width="675"
+              height="396"
               loading="lazy"
             />
           </div>
@@ -442,6 +442,11 @@ const portfolioStack = ["Astro", "Design System", "SEO", "Responsividade"];
   .project-case__image-frame--contain img {
     object-fit: contain;
     object-position: center;
+  }
+
+  /* Mantém visível o painel da extensão, que fica à direita do print */
+  .project-case__image-frame--right img {
+    object-position: right top;
   }
 
   .project-preview {
