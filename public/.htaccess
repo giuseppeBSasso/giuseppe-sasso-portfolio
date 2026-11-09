@@ -1,0 +1,32 @@
+# giuseppe.sasso — configuracao do servidor (Hostinger / Apache-LiteSpeed)
+# Versionado em public/.htaccess e copiado pelo Astro para dist/ no build.
+
+# 1) Pagina 404 personalizada
+ErrorDocument 404 /404.html
+
+# 3) Dominio canonico: www -> sem www (301)
+# O redirecionamento HTTP -> HTTPS ja e feito pela Hostinger.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.giuseppesasso\.com\.br$ [NC]
+  RewriteRule ^ https://giuseppesasso.com.br%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# 2) Cabecalhos de seguranca
+<IfModule mod_headers.c>
+  # Forca HTTPS no navegador por 1 ano (sem includeSubDomains de proposito:
+  # subdominios de preview de clientes podem ter configuracao propria).
+  Header always set Strict-Transport-Security "max-age=31536000"
+
+  # Impede o navegador de "adivinhar" o tipo de arquivo.
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Impede que o site seja exibido dentro de iframes de outros dominios (clickjacking).
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # Envia apenas a origem (sem o caminho) ao navegar para outros sites.
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Desativa recursos do navegador que o site nao usa.
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+</IfModule>
