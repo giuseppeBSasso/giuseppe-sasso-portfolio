@@ -1,8 +1,17 @@
 import type { APIRoute } from "astro";
+import { caseStudies } from "../data/case-studies";
 
 export const prerender = true;
 
-const publicRoutes = ["/", "/engenharia/", "/projetos/", "/sites/", "/sobre/", "/falar-comigo/"];
+const publicRoutes = [
+  "/",
+  "/engenharia/",
+  "/projetos/",
+  ...caseStudies.map((study) => `/projetos/${study.slug}/`),
+  "/sites/",
+  "/sobre/",
+  "/falar-comigo/"
+];
 
 export const GET: APIRoute = ({ site }) => {
   const siteUrl = site ?? new URL("https://giuseppesasso.com.br");

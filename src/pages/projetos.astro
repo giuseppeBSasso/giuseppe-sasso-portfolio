@@ -99,9 +99,9 @@ const portfolioStack = ["Astro", "Design System", "SEO", "Responsividade"];
             <a class="button button--primary project-case__primary-link" href="https://precifi3d.com/" target="_blank" rel="noopener noreferrer">
               Ver projeto <span aria-hidden="true">↗</span>
             </a>
-            <span class="project-unavailable">
-              Estudo de caso <span>em breve</span>
-            </span>
+            <a class="projects-text-link" href="/projetos/precifi3d/">
+              Ler estudo de caso <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
       </article>
@@ -112,7 +112,7 @@ const portfolioStack = ["Astro", "Design System", "SEO", "Responsividade"];
           <div class="project-case__image-frame project-case__image-frame--right">
             <img
               src="/uploads/projetos/license-guard.png"
-              alt="Tela principal autenticada da extensão Precifi3D License Guard analisando uma licença"
+              alt="Extensão Precifi3D License Guard aberta ao lado de uma página de modelo 3D, exibindo a licença Creative Commons Attribution analisada"
               width="675"
               height="396"
               loading="lazy"
@@ -123,7 +123,7 @@ const portfolioStack = ["Astro", "Design System", "SEO", "Responsividade"];
         <div class="project-case__content">
           <div class="project-case__heading-row">
             <span class="project-case__number">02</span>
-            <span class="projects-status-badge projects-status-badge--gold">Em desenvolvimento</span>
+            <span class="projects-status-badge projects-status-badge--cyan">Publicado</span>
           </div>
           <p class="project-case__meta">Chrome Extension · Software</p>
           <h3>Precifi3D License Guard</h3>
@@ -145,9 +145,12 @@ const portfolioStack = ["Astro", "Design System", "SEO", "Responsividade"];
           </div>
           <p class="project-case__role"><strong>Meu papel · </strong>definição do produto e requisitos, desenho dos fluxos de análise e organização das licenças, decisões de arquitetura, desenvolvimento assistido por IA, testes e evolução técnica da extensão.</p>
           <div class="project-case__actions">
-            <span class="project-unavailable">
-              Estudo de caso <span>em breve</span>
-            </span>
+            <a class="project-store-badge" href="https://chromewebstore.google.com/detail/precifi3d-license-guard/ifagoapjlbmmdjjflmknjgicnijknldf" target="_blank" rel="noopener noreferrer">
+              <img src="/brand/chrome-web-store-badge.png" alt="Ver na Chrome Web Store" width="206" height="58" loading="lazy" />
+            </a>
+            <a class="projects-text-link" href="/projetos/license-guard/">
+              Ler estudo de caso <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
       </article>
@@ -184,9 +187,9 @@ const portfolioStack = ["Astro", "Design System", "SEO", "Responsividade"];
             <a class="button button--primary project-case__primary-link" href="https://giuseppesasso.com.br" target="_blank" rel="noopener noreferrer">
               Ver ao vivo <span aria-hidden="true">↗</span>
             </a>
-            <span class="project-unavailable project-unavailable--muted">
-              Estudo de caso <span>em breve</span>
-            </span>
+            <a class="projects-text-link" href="/projetos/giuseppe-sasso/">
+              Ler estudo de caso <span aria-hidden="true">→</span>
+            </a>
             <a class="projects-text-link" href="https://github.com/giuseppeBSasso/giuseppe-sasso-portfolio" target="_blank" rel="noopener noreferrer">
               GitHub <span aria-hidden="true">↗</span>
             </a>
@@ -658,6 +661,23 @@ const portfolioStack = ["Astro", "Design System", "SEO", "Responsividade"];
   .project-case__primary-link:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 22px rgba(120, 205, 225, .28);
+  }
+
+  /* Selo oficial da Chrome Web Store: sem alterações, apenas no tamanho original */
+  .project-store-badge {
+    display: inline-flex;
+    border-radius: 8px;
+    transition: opacity var(--transition-fast);
+  }
+
+  .project-store-badge:hover {
+    opacity: .85;
+  }
+
+  .project-store-badge img {
+    display: block;
+    width: 206px;
+    height: auto;
   }
 
   .project-unavailable {
